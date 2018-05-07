@@ -35,7 +35,7 @@ namespace Unirea.UI
         #region Methods
 
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             // Fill the screens array with all components of type 'UI_Screen'
             // True --> finds all inactive screens too
@@ -57,7 +57,16 @@ namespace Unirea.UI
 
             FadeIn();
         }
-        
+
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SwitchToScreen(previousScreen);
+            }
+        }
+
         public void FadeIn()
         {
             if (screenFader)
