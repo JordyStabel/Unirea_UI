@@ -1,4 +1,6 @@
-﻿namespace Unirea_UI.Models
+﻿using Assets.Backend.Models;
+
+namespace Unirea_UI.Models
 {
     public class Clan
     {

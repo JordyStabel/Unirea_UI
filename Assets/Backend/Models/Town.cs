@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using Assets.Backend.Models.Buildings;
+using Unirea_UI.Models;
 
-namespace Unirea_UI.Models
+namespace Assets.Backend.Models
 {
     public class Town
     {

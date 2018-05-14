@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Backend.Models;
 
 namespace Unirea_UI.Models
 {

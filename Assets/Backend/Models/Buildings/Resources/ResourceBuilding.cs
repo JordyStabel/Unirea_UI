@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Unirea_UI.Models.Buildings.Resources
+﻿namespace Assets.Backend.Models.Buildings.Resources
 {
     public abstract class ResourceBuilding : Building
     {
