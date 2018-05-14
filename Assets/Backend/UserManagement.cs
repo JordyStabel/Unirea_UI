@@ -21,14 +21,14 @@ namespace Unirea_UI
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://145.93.173.52:8090");
-                
+
                 var queries = new Dictionary<string, string>
                 {
                     {"email", player.Email},
                     {"password", player.Password}
                 };
 
-                var json = JsonConvert.SerializeObject(queries);     
+                var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/account/login", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
@@ -58,4 +58,3 @@ namespace Unirea_UI
         }
     }
 }
-
