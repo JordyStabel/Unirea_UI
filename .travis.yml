@@ -1,0 +1,17 @@
+language: csharp
+dist: trusty
+jdk: oraclejdk8
+
+addons:
+  sonarcloud:
+    organization: braindead-dev-github
+    branches:
+      - master
+      - development
+
+
+notifications:
+    email: false
+
+script:
+  - ./build.sh
