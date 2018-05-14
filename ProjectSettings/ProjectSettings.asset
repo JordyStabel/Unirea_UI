@@ -716,7 +716,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 4a9e5358-1f70-4121-8690-2d3a887f425f
   projectName: Uniread_UI
   organizationId: cadgamings
