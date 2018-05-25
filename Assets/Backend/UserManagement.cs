@@ -15,7 +15,7 @@ namespace Assets.Backend
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://145.93.173.52:8090");
+                client.BaseAddress = new Uri(RestConstants.Url);
 
                 var queries = new Dictionary<string, string>
                 {
@@ -35,7 +35,7 @@ namespace Assets.Backend
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://145.93.173.52:8090");
+                client.BaseAddress = new Uri(RestConstants.Url);
 
                 var queries = new Dictionary<string, string>
                 {
