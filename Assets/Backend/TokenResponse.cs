@@ -1,16 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Unirea_UI
+namespace Assets.Backend
 {
-    public class TokenResponse
+    public class Token
     {
         public string AccessToken  { get; private set; }
         public int ExpiresIn { get; private set; }
         public string Username { get; private set; }
-        public string Issued { get; private set; }
-        public string Expires { get; private set; }
+        public DateTime Issued { get; private set; }
+        public DateTime Expires { get; private set; }
+
+        public Token(string accessToken, int expiresIn, string username, DateTime issued, DateTime expires)
+        {
+            AccessToken = accessToken;
+            ExpiresIn = expiresIn;
+            Username = username;
+            Issued = issued;
+            Expires = expires;
+        }
     }
 }

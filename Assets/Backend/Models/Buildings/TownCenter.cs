@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Unirea_UI.Models;
 
-namespace Unirea_UI.Models.Buildings
+namespace Assets.Backend.Models.Buildings
 {
     public class TownCenter : Building
     {

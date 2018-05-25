@@ -1,4 +1,4 @@
-﻿namespace Unirea_UI.Models
+﻿namespace Assets.Backend.Models
 {
     public enum Role
     {
