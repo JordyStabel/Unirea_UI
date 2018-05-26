@@ -49,7 +49,7 @@ namespace Assets.Backend
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/account/register", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
-                return resultContent == "Succesfully registered";
+                return resultContent == "Successfully registered";
             }
         }
     }
