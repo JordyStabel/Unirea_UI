@@ -11,7 +11,7 @@ namespace Assets.Backend
 {
     public class UserManagement
     {
-        public async Task Login(Player player)
+        public async Task<string> Login(Player player)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -27,7 +27,8 @@ namespace Assets.Backend
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/account/login", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
-                Console.WriteLine(resultContent);
+
+                return resultContent == "Player does not exist" ? null : resultContent;
             }
         }
 
