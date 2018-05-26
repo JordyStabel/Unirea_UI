@@ -28,11 +28,11 @@ namespace Assets.Backend
                 var result = await client.PostAsync("/account/login", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
                 Console.WriteLine(resultContent);
-                return resultContent;
+                return resultContent == "Player does not exist" ? null : resultContent;
             }
         }
 
-        public async Task<string> Register(Player player)
+        public async Task<bool> Register(Player player)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -49,8 +49,7 @@ namespace Assets.Backend
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/account/register", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
-                Console.WriteLine(resultContent);
-                return resultContent;
+                return resultContent == "Succesfully registered";
             }
         }
     }

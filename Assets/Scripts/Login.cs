@@ -12,7 +12,7 @@ public class Login : MonoBehaviour {
 
     public async void LoginUser()
     {
-        Player player = new Player(0, "UserName", userName.text, passWord.text);
+        Player player = new Player("", "UserName", userName.text, passWord.text);
         string test;
 
         test = await userManagement.Login(player);

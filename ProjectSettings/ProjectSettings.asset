@@ -639,7 +639,12 @@ PlayerSettings:
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   apiCompatibilityLevelPerPlatform:
+<<<<<<< HEAD
     Android: 6
+=======
+    Android: 3
+    Standalone: 6
+>>>>>>> 9a910228c7fc411b7189d747a4d42fb41d0865a4
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Uniread_UI

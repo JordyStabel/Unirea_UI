@@ -16,8 +16,8 @@ public class Register : MonoBehaviour {
     {
         if (passWord.text == passWordRepeat.text)
         {
-            Player player = new Player(0, userName.text, email.text, passWord.text);
-            string test;
+            Player player = new Player("", userName.text, email.text, passWord.text);
+            bool test;
 
             test = await userManagement.Register(player);
             Debug.Log(test);
