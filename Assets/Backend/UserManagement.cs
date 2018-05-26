@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Backend.Exceptions;
 using Assets.Backend.Models;
 using Newtonsoft.Json;
 using Unirea_UI.Models;
@@ -11,7 +13,7 @@ namespace Assets.Backend
 {
     public class UserManagement
     {
-        public async Task<string> Login(Player player)
+        public async Task<Player> Login(Player player)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -28,8 +30,18 @@ namespace Assets.Backend
                 var result = await client.PostAsync("/account/login", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
 
-                return resultContent == "Player does not exist" ? null : resultContent;
+                switch (result.StatusCode)
+                {
+                    case HttpStatusCode.NotFound:
+                        throw new PlayerNotFoundException("Unable to find player.");
+                    case HttpStatusCode.Forbidden:
+                        throw new AuthenticationException("The password was incorrect.");
+                    case HttpStatusCode.OK:
+                        player.AuthenticationToken = resultContent;
+                        return player;
+                }
             }
+            return null;
         }
 
         public async Task<bool> Register(Player player)
@@ -48,10 +60,75 @@ namespace Assets.Backend
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/account/register", data);
-                string resultContent = await result.Content.ReadAsStringAsync();
 
-                return resultContent == "Succesfully registered";
+                switch (result.StatusCode)
+                {
+                    case HttpStatusCode.Conflict:
+                        throw new InformationAlreadyUsedException("Email already in use.");
+                    case HttpStatusCode.OK:
+                        return true;
+
+                }
             }
+            return false;
+        }
+
+        public async Task<bool> ChangePassword(string authenticationToken, string username, string newPassword, string verifyPassword)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(RestConstants.Url);
+
+                var queries = new Dictionary<string, string>
+                {
+                    {"token", authenticationToken },
+                    { "username", username },
+                    { "newPassword", newPassword },
+                    { "verifyPassword", verifyPassword }
+                };
+
+                var json = JsonConvert.SerializeObject(queries);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync("/account/changepassword", data);
+
+                switch (result.StatusCode)
+                {
+                    case HttpStatusCode.Conflict:
+                        throw new PasswordMatchingException("The given passwords do not match.");
+                    case HttpStatusCode.Forbidden:
+                        throw new SessionExpiredException("The player's login session has expired.");
+                    case HttpStatusCode.OK:
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public async Task<bool> Logout(string authenticationToken, string username)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(RestConstants.Url);
+
+                var queries = new Dictionary<string, string>
+                {
+                    { "token",  authenticationToken },
+                    { "username", username }
+                };
+
+                var json = JsonConvert.SerializeObject(queries);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync("/account/logout", data);
+
+                switch (result.StatusCode)
+                {
+                    case HttpStatusCode.Forbidden:
+                        throw new SessionExpiredException("Player is already logged out.");
+                    case HttpStatusCode.OK:
+                        return true;
+                }
+            }
+            return false;
         }
     }
 }

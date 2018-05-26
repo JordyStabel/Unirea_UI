@@ -4,7 +4,7 @@ namespace Assets.Backend.Models
 {
     public class Player
     {
-        public string AuthenticationToken { get; private set; }
+        public string AuthenticationToken { get; set; }
         public string Username { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
