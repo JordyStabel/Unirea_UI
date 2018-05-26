@@ -8,14 +8,14 @@ public class Login : MonoBehaviour {
     public InputField userName;
     public InputField passWord;
 
-    //public GameObject gameManager;
-
     private UserManagement userManagement = new UserManagement();
 
-    public async void UserLogin()
+    public async void LoginUser()
     {
-        Player player = new Player(0, userName.text, "test@test.com", passWord.text);
+        Player player = new Player("", "UserName", userName.text, passWord.text);
+        string test;
 
-        await userManagement.Register(player);
+        test = await userManagement.Login(player);
+        Debug.Log(test);
     }
 }
