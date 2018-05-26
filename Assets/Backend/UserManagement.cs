@@ -11,7 +11,7 @@ namespace Assets.Backend
 {
     public class UserManagement
     {
-        public async Task Login(Player player)
+        public async Task<string> Login(Player player)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -28,10 +28,11 @@ namespace Assets.Backend
                 var result = await client.PostAsync("/account/login", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
                 Console.WriteLine(resultContent);
+                return resultContent;
             }
         }
 
-        public async Task Register(Player player)
+        public async Task<string> Register(Player player)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -49,6 +50,7 @@ namespace Assets.Backend
                 var result = await client.PostAsync("/account/register", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
                 Console.WriteLine(resultContent);
+                return resultContent;
             }
         }
     }

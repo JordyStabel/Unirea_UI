@@ -6618,6 +6618,7 @@ GameObject:
   - component: {fileID: 1295013338}
   - component: {fileID: 1295013337}
   - component: {fileID: 1295013336}
+  - component: {fileID: 1295013339}
   m_Layer: 0
   m_Name: CreateAccount_Button
   m_TagString: Untagged
@@ -6683,12 +6684,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 936712357}
-        m_MethodName: SwitchToScreen
-        m_Mode: 2
+      - m_Target: {fileID: 1295013339}
+        m_MethodName: RegisterUser
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2060363392}
-          m_ObjectArgumentAssemblyTypeName: Unirea.UI.UI_Screen, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6729,6 +6730,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1295013334}
+--- !u!114 &1295013339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1295013334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b108f195e3ec86e46ab3c804f13855eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userName: {fileID: 946756006}
+  passWord: {fileID: 900767596}
+  passWordRepeat: {fileID: 1351981185}
+  email: {fileID: 1680249883}
 --- !u!1 &1301888060
 GameObject:
   m_ObjectHideFlags: 0
@@ -10639,7 +10655,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 0
       - m_Target: {fileID: 2054961138}
-        m_MethodName: UserLogin
+        m_MethodName: LoginUser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
