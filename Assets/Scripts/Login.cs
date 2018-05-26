@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Unirea_UI;
-using Unirea_UI.Models;
+using Assets.Backend;
+using Assets.Backend.Models;
 
 public class Login : MonoBehaviour {
 
