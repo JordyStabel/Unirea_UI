@@ -10,12 +10,12 @@ public class PlayerInfo : MonoBehaviour {
 
     private void OnEnable()
     {
-        EventManager.playerUpdateEvent += Notify;
+        EventManager.playerUpdateEvent += EventNotifier;
     }
 
     private void OnDisable()
     {
-        EventManager.playerUpdateEvent -= Notify;
+        EventManager.playerUpdateEvent -= EventNotifier;
     }
 
     public void UpdatePlayer(Player player)
@@ -23,8 +23,8 @@ public class PlayerInfo : MonoBehaviour {
         currentPlayer = player;
         isLoggedIn = true;
         EventManager.PlayerUpdate();
-        Notify();
+        EventNotifier();
     }
 
-    private void Notify() { }
+    private void EventNotifier() { }
 }
