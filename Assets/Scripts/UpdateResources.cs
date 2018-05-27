@@ -11,12 +11,17 @@ namespace Unirea.UI
         public Text oilAmount;
 
         // Use this for initialization
-        void Start()
+        void OnEnable()
         {
-            InvokeRepeating("UpdateText", 1, 1);
+            EventManager.playerUpdateEvent += UpdateText;
         }
 
-        void UpdateText()
+        private void OnDisable()
+        {
+            EventManager.playerUpdateEvent -= UpdateText;
+        }
+
+        public void UpdateText()
         {
             woodAmount.text = "15";
             ironAmount.text = "25";

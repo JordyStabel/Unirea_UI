@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Assets.Backend.Models;
 
-public class EventManager : MonoBehaviour {
+namespace Unirea.UI
+{
+    public class EventManager : MonoBehaviour
+    {
+        public delegate void PlayerUpdateEvent();
+        public static event PlayerUpdateEvent playerUpdateEvent;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        public static void PlayerUpdate()
+        {
+            if (playerUpdateEvent != null)
+                playerUpdateEvent();
+        }
+    }
 }
