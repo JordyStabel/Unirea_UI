@@ -27,7 +27,7 @@ namespace Unirea.UI
             ironAmount.text = "25";
             oilAmount.text = "35";
 
-            if (PlayerInfo.isLoggedIn) cityName.text = PlayerInfo.currentPlayer.Email + "'s City";
+            if (PlayerInfo.isLoggedIn) cityName.text = PlayerInfo.currentPlayer.Username + "'s City";
         }
     }
 }
