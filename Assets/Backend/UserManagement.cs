@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Assets.Backend.Exceptions;
 using Assets.Backend.Models;
 using Newtonsoft.Json;
-using Unirea_UI.Models;
 
 namespace Assets.Backend
 {
@@ -37,7 +35,7 @@ namespace Assets.Backend
                     case HttpStatusCode.Forbidden:
                         throw new AuthenticationException("The password was incorrect.");
                     case HttpStatusCode.OK:
-                        player.AuthenticationToken = resultContent;
+                        player = new Player(resultContent, null, player.Username, player.Password);
                         return player;
                 }
             }
@@ -65,6 +63,8 @@ namespace Assets.Backend
                 {
                     case HttpStatusCode.Conflict:
                         throw new InformationAlreadyUsedException("Email already in use.");
+                    case HttpStatusCode.BadRequest:
+                        throw new ArgumentException("One of the required values was not given.");
                     case HttpStatusCode.OK:
                         return true;
 
@@ -132,3 +132,4 @@ namespace Assets.Backend
         }
     }
 }
+
