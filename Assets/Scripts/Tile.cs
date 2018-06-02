@@ -5,6 +5,8 @@ public class Tile : MonoBehaviour {
 
     MapManager mapManager;
 
+    public Vector2 coordinates;
+
 	// Use this for initialization
 	void Start () {
         mapManager = MapManager.instance;
@@ -18,6 +20,5 @@ public class Tile : MonoBehaviour {
     public void Test()
     {
         mapManager.SelectTown(this);
-        Debug.Log(this.GetComponent<Image>().name);
     }
 }
