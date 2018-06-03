@@ -12,7 +12,7 @@ public class MapInfo_UI : MonoBehaviour {
     {
         tile = _tile;
 
-        townName.text = _tile.name;
+        townName.text = _tile.name + "\n" + "Henk";
 
         UI.SetActive(true);
     }

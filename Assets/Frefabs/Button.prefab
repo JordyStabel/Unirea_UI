@@ -126,7 +126,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114121726244221882}
-        m_MethodName: Test
+        m_MethodName: TileClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

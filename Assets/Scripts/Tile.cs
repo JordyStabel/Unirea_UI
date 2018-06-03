@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Tile : MonoBehaviour {
 
@@ -7,17 +6,11 @@ public class Tile : MonoBehaviour {
 
     public Vector2 coordinates;
 
-	// Use this for initialization
 	void Start () {
         mapManager = MapManager.instance;
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-	}
-
-    public void Test()
+    public void TileClick()
     {
         mapManager.SelectTown(this);
     }
