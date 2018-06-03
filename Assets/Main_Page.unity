@@ -3108,7 +3108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -0.0002746582}
+  m_AnchoredPosition: {x: 0.000061035156, y: -0.000091552734}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &729064560
@@ -5049,6 +5049,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2b041ca12270de244b549f3858444867, type: 3}
   townSprite: {fileID: 21300000, guid: ff94727ad0c60a641a53e0153549df06, type: 3}
   content: {fileID: 729064561}
+  snappingSpeed: 2.5
   maxWidth: 30
   maxHeight: 30
 --- !u!1 &989667783

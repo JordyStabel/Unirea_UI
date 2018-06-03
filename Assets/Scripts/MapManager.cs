@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,13 +7,13 @@ using UnityEngine.UI;
 public class MapManager : MonoBehaviour {
 
     public static MapManager instance;
-
     public MapInfo_UI mapInfo_UI;
 
     public GameObject tile;
     public Sprite[] sprites;
     public Sprite townSprite;
     public GridLayoutGroup content;
+    public float snappingSpeed;
 
     public int maxWidth;
     public int maxHeight;
@@ -20,8 +21,6 @@ public class MapManager : MonoBehaviour {
     private GameObject[,] tileArray;
 
     private List<Vector2> townList = new List<Vector2>();
-
-    private Vector2 ownTownCoordinates = new Vector2(7, 7);
 
     void Awake()
     {
@@ -41,8 +40,6 @@ public class MapManager : MonoBehaviour {
         townList.Add(new Vector2(7, 7));
 
         GenerateMap();
-
-        FocusOnTown(ownTownCoordinates);
     }
 
     private void GenerateMap()
@@ -74,29 +71,25 @@ public class MapManager : MonoBehaviour {
     public void SelectTown(Tile tile)
     {
         if (tile.name.Contains("Henk"))
-        {
             mapInfo_UI.Show(tile);
-            //FocusOnTown(tile.coordinates);
-        }
         else
-        {
-            FocusOnTown(tile.coordinates);
             mapInfo_UI.Hide();
-        }
+
+        StopAllCoroutines();
+        StartCoroutine(SnapToTown(tile.coordinates));
     }
 
-    private void FocusOnTown(Vector2 coordinates)
+    IEnumerator SnapToTown(Vector2 coordinates)
     {
-        // TODO: Make dynamic with Tile size
-        try
+        Vector3 targetPosition = new Vector3(((coordinates.x * 250) - 415) * -1, (coordinates.y * 250) -835);
+
+        while (Vector3.Distance(content.transform.localPosition, targetPosition) > 50f)
         {
-            Vector3 centerPosition = new Vector3(((coordinates.x * 250) - 415) * -1, (coordinates.y * 250) - 835);
-            content.GetComponent<RectTransform>().localPosition = centerPosition;
-            Debug.Log(centerPosition.ToString());
-        }
-        catch
-        {
-            Debug.Log("Town to close to border");
+            content.transform.localPosition = Vector3.Lerp(
+                content.GetComponent<RectTransform>().localPosition, 
+                new Vector3(((coordinates.x * 250) - 415) * -1, (coordinates.y * 250) - 835), 
+                Time.deltaTime * snappingSpeed);
+            yield return null;
         }
     }
 }
