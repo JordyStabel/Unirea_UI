@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Assets.Backend.Exceptions;
 using Assets.Backend.Models;
 using Assets.Backend.Models.Buildings;
+using Assets.Backend.RestModels;
 using Newtonsoft.Json;
 
 namespace Assets.Backend
@@ -33,7 +34,7 @@ namespace Assets.Backend
                 switch (result.StatusCode)
                 {
                     case HttpStatusCode.NotFound:
-                        throw new PlayerNotFoundException("Unable to find player.");
+                        throw new NotFoundException("Unable to find player.");
                     case HttpStatusCode.Forbidden:
                         throw new AuthenticationException("The password was incorrect.");
                     case HttpStatusCode.OK:
@@ -228,7 +229,39 @@ namespace Assets.Backend
             throw new InvalidOperationException("Reached invalid state.");
         }
 
-        public async Task<List<Town>> GetAllTowns(string authenticationToken)
+        //TODO: New class for specific town class of server
+        public async Task<List<RestTown>> GetAllTowns(string authenticationToken)
+        {
+            List<RestTown> towns = new List<RestTown>();
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(RestConstants.Url);
+
+                var queries = new Dictionary<string, string>
+                {
+                    {"token", authenticationToken}
+                };
+
+                var json = JsonConvert.SerializeObject(queries);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync("/map/all", data);
+                var resultContent = await result.Content.ReadAsStringAsync();
+
+                switch (result.StatusCode)
+                {
+                    case HttpStatusCode.OK:
+                        towns = JsonConvert.DeserializeObject<List<RestTown>>(resultContent);
+                        return towns;
+                    case HttpStatusCode.Forbidden:
+                        throw new SessionExpiredException("The player's login session has expired.");
+                }
+            }
+
+            throw new InvalidOperationException("Reached invalid state.");
+        }
+
+        public async Task<List<Town>> GetAllTownsFromPlayer(string authenticationToken, int playerId)
         {
             List<Town> towns = new List<Town>();
 
@@ -238,7 +271,8 @@ namespace Assets.Backend
 
                 var queries = new Dictionary<string, string>
                 {
-                    {"token", authenticationToken}
+                    {"token", authenticationToken},
+                    {"playerId", playerId.ToString()}
                 };
 
                 var json = JsonConvert.SerializeObject(queries);
@@ -252,11 +286,7 @@ namespace Assets.Backend
                         towns = JsonConvert.DeserializeObject<List<Town>>(resultContent);
                         return towns;
                     case HttpStatusCode.NotFound:
-                        var town = await CreateTown(authenticationToken);
-                        towns.Add(town);
-                        return towns;
-                    case HttpStatusCode.Forbidden:
-                        throw new SessionExpiredException("The player's login session has expired.");
+                        throw new NotFoundException("Could not find towns of specified player.");
                 }
             }
 
