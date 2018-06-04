@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
+using Assets.Backend.Models;
 
 namespace Unirea.UI
 {
     public class Building : MonoBehaviour
     {
 
-        // Use this for initialization
         void Start()
         {
 
