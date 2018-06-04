@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assets.Backend.Models.Buildings;
+using Newtonsoft.Json;
 using Unirea_UI.Models;
 
 namespace Assets.Backend.Models
@@ -12,6 +13,7 @@ namespace Assets.Backend.Models
         public int X { get; private set; }
         public int Y { get; private set; }
 
+        [JsonConstructor]
         public Town(int id, Player player, string name, int x, int y)
         {
             Id = id;
