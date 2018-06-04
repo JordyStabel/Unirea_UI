@@ -15,8 +15,6 @@ namespace Assets.Backend.Rest
     {
         public async Task<List<RestTown>> GetAllTowns(string authenticationToken)
         {
-            List<RestTown> towns = new List<RestTown>();
-
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(RestConstants.Url);
@@ -34,7 +32,7 @@ namespace Assets.Backend.Rest
                 switch (result.StatusCode)
                 {
                     case HttpStatusCode.OK:
-                        towns = JsonConvert.DeserializeObject<List<RestTown>>(resultContent);
+                        List<RestTown> towns = JsonConvert.DeserializeObject<List<RestTown>>(resultContent);
                         return towns;
                     case HttpStatusCode.Forbidden:
                         throw new SessionExpiredException("The player's login session has expired.");
