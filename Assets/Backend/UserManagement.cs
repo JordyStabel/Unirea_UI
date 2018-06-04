@@ -37,7 +37,7 @@ namespace Assets.Backend
                     case HttpStatusCode.Forbidden:
                         throw new AuthenticationException("The password was incorrect.");
                     case HttpStatusCode.OK:
-                        player = new Player(resultContent, null, player.Username, player.Password);
+                        player = new Player(0, resultContent, player.Username, player.Email);
                         return player;
                 }
             }
