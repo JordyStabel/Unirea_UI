@@ -66,6 +66,8 @@ namespace Assets.Backend
                     case HttpStatusCode.OK:
                         Player player = JsonConvert.DeserializeObject<Player>(resultContent);
                         return player;
+                    case HttpStatusCode.NotFound:
+                        throw new NotFoundException("The specified player was not found.");
                 }
             }
 
