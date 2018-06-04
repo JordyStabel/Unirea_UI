@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using Assets.Backend;
 using Assets.Backend.Models;
+using Unirea.UI;
 
 public class Register : MonoBehaviour {
 
@@ -9,6 +10,10 @@ public class Register : MonoBehaviour {
     public InputField passWord;
     public InputField passWordRepeat;
     public InputField email;
+
+    public UI_Screen screen;
+
+    public GameObject UI_script;
 
     private UserManagement userManagement = new UserManagement();
 
@@ -22,13 +27,12 @@ public class Register : MonoBehaviour {
             {
                 player = await userManagement.Login(player);
 
-                if (player.AuthenticationToken != null)
+                if (player.AuthenticationToken != "")
                 {
-                    Debug.Log(await userManagement.CreateTown(player.AuthenticationToken));
+                    Debug.Log(await userManagement.GetAllTowns(player.AuthenticationToken));
+                    UI_script.GetComponent<UI_System>().SwitchToScreen(screen);
                 }
             }
-
-            //Debug.Log(await userManagement.Register(player));
         }
         else { Debug.Log("Make sure both passwords are the same"); }
     }
