@@ -17,10 +17,18 @@ public class Register : MonoBehaviour {
         if (passWord.text == passWordRepeat.text)
         {
             Player player = new Player("", userName.text, email.text, passWord.text);
-            bool test;
 
-            test = await userManagement.Register(player);
-            Debug.Log(test);
+            if (await userManagement.Register(player))
+            {
+                player = await userManagement.Login(player);
+
+                if (player.AuthenticationToken != null)
+                {
+                    Debug.Log(await userManagement.CreateTown(player.AuthenticationToken));
+                }
+            }
+
+            //Debug.Log(await userManagement.Register(player));
         }
         else { Debug.Log("Make sure both passwords are the same"); }
     }
