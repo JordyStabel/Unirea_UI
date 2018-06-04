@@ -61,7 +61,6 @@ namespace Assets.Backend
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/account/register", data);
-                var test = result.StatusCode;
 
                 switch (result.StatusCode)
                 {
@@ -169,7 +168,7 @@ namespace Assets.Backend
             return null;
         }
 
-        private async Task<bool> CreateTown(string authenticationToken)
+        public async Task<bool> CreateTown(string authenticationToken)
         {
             using (HttpClient client = new HttpClient())
             {
