@@ -45,6 +45,33 @@ namespace Assets.Backend
             throw new InvalidOperationException("Reached invalid state.");
         }
 
+        public async Task<Player> GetAccount(string authenticationToken)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(RestConstants.Url);
+
+                var queries = new Dictionary<string, string>
+                {
+                    { "token", authenticationToken }
+                };
+
+                var json = JsonConvert.SerializeObject(queries);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync("/account/login", data);
+                string resultContent = await result.Content.ReadAsStringAsync();
+
+                switch (result.StatusCode)
+                {
+                    case HttpStatusCode.OK:
+                        Player player = JsonConvert.DeserializeObject<Player>(resultContent);
+                        return player;
+                }
+            }
+
+            throw new InvalidOperationException("Reached invalid state.");
+        }
+
         public async Task<bool> Register(Player player)
         {
             using (HttpClient client = new HttpClient())
