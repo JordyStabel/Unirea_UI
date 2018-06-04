@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Assets.Backend;
+using Assets.Backend.Rest;
 using Assets.Backend.Models;
 using Unirea.UI;
 
@@ -15,7 +15,8 @@ public class Register : MonoBehaviour {
 
     public GameObject UI_script;
 
-    private UserManagement userManagement = new UserManagement();
+    private AccountRest accountRest = new AccountRest();
+    private TownRest townRest = new TownRest();
 
     public async void RegisterUser()
     {
@@ -23,18 +24,13 @@ public class Register : MonoBehaviour {
         {
             Player player = new Player(userName.text, email.text, passWord.text);
 
-            if (await userManagement.Register(player))
+            if (await accountRest.Register(player))
             {
-                player = await userManagement.Login(player);
+                player = await accountRest.Login(player);
 
                 if (player.AuthenticationToken != "")
                 {
-                    //foreach (var town in await userManagement.GetAllTowns(player.AuthenticationToken))
-                    //{
-                    //    Debug.Log(town.Player);
-                    //}
-
-                    await userManagement.GetAllTowns(player.AuthenticationToken);
+                    await townRest.CreateTown(player.AuthenticationToken);
                     UI_script.GetComponent<UI_System>().SwitchToScreen(screen);
                 }
             }

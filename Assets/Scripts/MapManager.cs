@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Assets.Backend;
-using Assets.Backend.Models;
+using Assets.Backend.Rest;
+using Assets.Backend.RestModels;
 
 public class MapManager : MonoBehaviour {
 
@@ -23,9 +23,9 @@ public class MapManager : MonoBehaviour {
     private GameObject[,] tileArray;
 
     private List<Vector2> townList = new List<Vector2>();
-    private List<Town> allTowns = new List<Town>();
+    private List<RestTown> allTowns = new List<RestTown>();
 
-    private UserManagement userManagement = new UserManagement();
+    private MapRest mapRest = new MapRest();
 
     void Awake()
     {
@@ -103,11 +103,11 @@ public class MapManager : MonoBehaviour {
         string token = PlayerInfo.currentPlayer.AuthenticationToken;
         Debug.Log(token);
 
-        allTowns = await userManagement.GetAllTowns(token);
+        allTowns = await mapRest.GetAllTowns(token);
 
-        foreach (Town town in allTowns)
+        foreach (RestTown town in allTowns)
         {
-            Debug.Log(town.Player);
+            Debug.Log(town.Id);
         }
     }
 }
