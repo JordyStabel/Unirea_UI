@@ -13,7 +13,6 @@ namespace Assets.Backend.Rest
 {
     class MapRest
     {
-        //TODO: New class for specific town class of server
         public async Task<List<RestTown>> GetAllTowns(string authenticationToken)
         {
             List<RestTown> towns = new List<RestTown>();
