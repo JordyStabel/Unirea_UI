@@ -76,7 +76,8 @@ namespace Assets.Backend
             return false;
         }
 
-        public async Task<bool> ChangePassword(string authenticationToken, string username, string newPassword, string verifyPassword)
+        public async Task<bool> ChangePassword(string authenticationToken, string username, string newPassword,
+            string verifyPassword)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -84,10 +85,10 @@ namespace Assets.Backend
 
                 var queries = new Dictionary<string, string>
                 {
-                    {"token", authenticationToken },
-                    { "username", username },
-                    { "newPassword", newPassword },
-                    { "verifyPassword", verifyPassword }
+                    {"token", authenticationToken},
+                    {"username", username},
+                    {"newPassword", newPassword},
+                    {"verifyPassword", verifyPassword}
                 };
 
                 var json = JsonConvert.SerializeObject(queries);
@@ -116,8 +117,8 @@ namespace Assets.Backend
 
                 var queries = new Dictionary<string, string>
                 {
-                    { "token",  authenticationToken },
-                    { "username", username }
+                    {"token", authenticationToken},
+                    {"username", username}
                 };
 
                 var json = JsonConvert.SerializeObject(queries);
@@ -144,14 +145,14 @@ namespace Assets.Backend
 
                 var queries = new Dictionary<string, string>
                 {
-                    { "token", authenticationToken }
+                    {"token", authenticationToken}
 
                 };
 
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/town/get", data);
-                string resultContent = await result.Content.ReadAsStringAsync();
+                var resultContent = await result.Content.ReadAsStringAsync();
                 var town = JsonConvert.DeserializeObject<Town>(resultContent);
 
                 switch (result.StatusCode)
@@ -168,7 +169,7 @@ namespace Assets.Backend
             return null;
         }
 
-        public async Task<bool> CreateTown(string authenticationToken)
+        public async Task<Town> CreateTown(string authenticationToken)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -176,25 +177,64 @@ namespace Assets.Backend
 
                 var queries = new Dictionary<string, string>
                 {
-                    { "token", authenticationToken }
+                    {"token", authenticationToken}
 
                 };
 
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/town/create", data);
+                var resultContent = await result.Content.ReadAsStringAsync();
 
                 switch (result.StatusCode)
                 {
                     case HttpStatusCode.OK:
-                        return true;
+                        var town = JsonConvert.DeserializeObject<Town>(resultContent);
+                        return town;
                     case HttpStatusCode.Forbidden:
                         throw new SessionExpiredException("The player's login session has expired.");
                 }
             }
 
-            return false;
+            return null;
+        }
+
+        public async Task<List<Town>> GetAllTowns(string authenticationToken)
+        {
+            List<Town> towns = new List<Town>();
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(RestConstants.Url);
+
+                var queries = new Dictionary<string, string>
+                {
+                    {"token", authenticationToken}
+
+                };
+
+                var json = JsonConvert.SerializeObject(queries);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync("/town/create", data);
+                var resultContent = await result.Content.ReadAsStringAsync();
+
+
+
+                switch (result.StatusCode)
+                {
+                    case HttpStatusCode.OK:
+                        towns = JsonConvert.DeserializeObject<List<Town>>(resultContent);
+                        return towns;
+                    case HttpStatusCode.NotFound:
+                        var town = await CreateTown(authenticationToken);
+                        towns.Add(town);
+                        return towns;
+                    case HttpStatusCode.Forbidden:
+                        throw new SessionExpiredException("The player's login session has expired.");
+                }
+            }
+
+            return null;
         }
     }
 }
-
