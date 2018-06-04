@@ -42,7 +42,7 @@ namespace Assets.Backend
                 }
             }
 
-            return null;
+            throw new InvalidOperationException("Reached invalid state.");
         }
 
         public async Task<bool> Register(Player player)
@@ -73,7 +73,7 @@ namespace Assets.Backend
                 }
             }
 
-            return false;
+            throw new InvalidOperationException("Reached invalid state.");
         }
 
         public async Task<bool> ChangePassword(string authenticationToken, string username, string newPassword,
@@ -106,7 +106,7 @@ namespace Assets.Backend
                 }
             }
 
-            return false;
+            throw new InvalidOperationException("Reached invalid state.");
         }
 
         public async Task<bool> Logout(string authenticationToken, string username)
@@ -134,7 +134,7 @@ namespace Assets.Backend
                 }
             }
 
-            return false;
+            throw new InvalidOperationException("Reached invalid state.");
         }
 
         public async Task<Town> GetTown(string authenticationToken)
@@ -166,7 +166,7 @@ namespace Assets.Backend
                 }
             }
 
-            return null;
+            throw new InvalidOperationException("Reached invalid state.");
         }
 
         public async Task<Town> CreateTown(string authenticationToken)
@@ -196,7 +196,7 @@ namespace Assets.Backend
                 }
             }
 
-            return null;
+            throw new InvalidOperationException("Reached invalid state.");
         }
 
         public async Task<List<Town>> GetAllTowns(string authenticationToken)
@@ -210,15 +210,12 @@ namespace Assets.Backend
                 var queries = new Dictionary<string, string>
                 {
                     {"token", authenticationToken}
-
                 };
 
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/town/all", data);
                 var resultContent = await result.Content.ReadAsStringAsync();
-
-
 
                 switch (result.StatusCode)
                 {
@@ -234,7 +231,7 @@ namespace Assets.Backend
                 }
             }
 
-            return null;
+            throw new InvalidOperationException("Reached invalid state.");
         }
     }
 }
