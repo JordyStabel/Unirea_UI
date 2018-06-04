@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Assets.Backend.Exceptions;
 using Assets.Backend.Models;
+using Assets.Backend.Models.Buildings;
 using Newtonsoft.Json;
 
 namespace Assets.Backend
@@ -40,6 +41,7 @@ namespace Assets.Backend
                         return player;
                 }
             }
+
             return null;
         }
 
@@ -69,9 +71,9 @@ namespace Assets.Backend
                         throw new ArgumentException("One of the required values was not given.");
                     case HttpStatusCode.OK:
                         return true;
-
                 }
             }
+
             return false;
         }
 
@@ -103,6 +105,7 @@ namespace Assets.Backend
                         return true;
                 }
             }
+
             return false;
         }
 
@@ -130,6 +133,65 @@ namespace Assets.Backend
                         return true;
                 }
             }
+
+            return false;
+        }
+
+        public async Task<Town> GetTown(string authenticationToken)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(RestConstants.Url);
+
+                var queries = new Dictionary<string, string>
+                {
+                    { "token", authenticationToken }
+
+                };
+
+                var json = JsonConvert.SerializeObject(queries);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync("/town/gettown", data);
+                string resultContent = await result.Content.ReadAsStringAsync();
+                var town = JsonConvert.DeserializeObject<Town>(resultContent);
+
+                switch (result.StatusCode)
+                {
+                    case HttpStatusCode.OK:
+                        return town;
+                    case HttpStatusCode.Forbidden:
+                        throw new SessionExpiredException("The player's login session has expired.");
+                }
+            }
+
+            return null;
+        }
+
+        public async Task<bool> CreateTown(string authenticationToken)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(RestConstants.Url);
+
+                var queries = new Dictionary<string, string>
+                {
+                    { "token", authenticationToken }
+
+                };
+
+                var json = JsonConvert.SerializeObject(queries);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync("/town/createtown", data);
+
+                switch (result.StatusCode)
+                {
+                    case HttpStatusCode.OK:
+                        return true;
+                    case HttpStatusCode.Forbidden:
+                        throw new SessionExpiredException("The player's login session has expired.");
+                }
+            }
+
             return false;
         }
     }
