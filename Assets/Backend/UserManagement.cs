@@ -263,8 +263,6 @@ namespace Assets.Backend
 
         public async Task<List<Town>> GetAllTownsFromPlayer(string authenticationToken, int playerId)
         {
-            List<Town> towns = new List<Town>();
-
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(RestConstants.Url);
@@ -283,7 +281,7 @@ namespace Assets.Backend
                 switch (result.StatusCode)
                 {
                     case HttpStatusCode.OK:
-                        towns = JsonConvert.DeserializeObject<List<Town>>(resultContent);
+                        List<Town> towns = JsonConvert.DeserializeObject<List<Town>>(resultContent);
                         return towns;
                     case HttpStatusCode.NotFound:
                         throw new NotFoundException("Could not find towns of specified player.");
