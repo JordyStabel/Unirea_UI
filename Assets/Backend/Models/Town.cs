@@ -7,7 +7,18 @@ namespace Assets.Backend.Models
     public class Town
     {
         public int Id { get; private set; }
+        public Player Player { get; private set; }
         public string Name { get; private set; }
-        public List<Building> Buildings { get; private set; }
+        public int X { get; private set; }
+        public int Y { get; private set; }
+
+        public Town(int id, Player player, string name, int x, int y)
+        {
+            Id = id;
+            Player = player;
+            Name = name;
+            X = x;
+            Y = y;
+        }
     }
 }

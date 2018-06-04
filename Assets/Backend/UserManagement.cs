@@ -61,7 +61,6 @@ namespace Assets.Backend
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/account/register", data);
-                var test = result.StatusCode;
 
                 switch (result.StatusCode)
                 {
@@ -151,7 +150,7 @@ namespace Assets.Backend
 
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var result = await client.PostAsync("/town/gettown", data);
+                var result = await client.PostAsync("/town/get", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
                 var town = JsonConvert.DeserializeObject<Town>(resultContent);
 
@@ -161,6 +160,8 @@ namespace Assets.Backend
                         return town;
                     case HttpStatusCode.Forbidden:
                         throw new SessionExpiredException("The player's login session has expired.");
+                    case HttpStatusCode.NotFound:
+                        throw new NotFoundException("The town of the specified player was not found.");
                 }
             }
 
@@ -181,7 +182,7 @@ namespace Assets.Backend
 
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var result = await client.PostAsync("/town/createtown", data);
+                var result = await client.PostAsync("/town/create", data);
 
                 switch (result.StatusCode)
                 {
