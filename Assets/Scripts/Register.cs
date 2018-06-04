@@ -29,7 +29,12 @@ public class Register : MonoBehaviour {
 
                 if (player.AuthenticationToken != "")
                 {
-                    Debug.Log(await userManagement.GetAllTowns(player.AuthenticationToken));
+                    //foreach (var town in await userManagement.GetAllTowns(player.AuthenticationToken))
+                    //{
+                    //    Debug.Log(town.Player);
+                    //}
+
+                    await userManagement.GetAllTowns(player.AuthenticationToken);
                     UI_script.GetComponent<UI_System>().SwitchToScreen(screen);
                 }
             }

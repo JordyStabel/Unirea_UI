@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.Backend;
+using Assets.Backend.Models;
 
 public class MapManager : MonoBehaviour {
 
@@ -21,6 +23,9 @@ public class MapManager : MonoBehaviour {
     private GameObject[,] tileArray;
 
     private List<Vector2> townList = new List<Vector2>();
+    private List<Town> allTowns = new List<Town>();
+
+    private UserManagement userManagement = new UserManagement();
 
     void Awake()
     {
@@ -90,6 +95,19 @@ public class MapManager : MonoBehaviour {
                 new Vector3(((coordinates.x * 250) - 415) * -1, (coordinates.y * 250) - 835), 
                 Time.deltaTime * snappingSpeed);
             yield return null;
+        }
+    }
+
+    public async void GetTowns()
+    {
+        string token = PlayerInfo.currentPlayer.AuthenticationToken;
+        Debug.Log(token);
+
+        allTowns = await userManagement.GetAllTowns(token);
+
+        foreach (Town town in allTowns)
+        {
+            Debug.Log(town.Player);
         }
     }
 }
