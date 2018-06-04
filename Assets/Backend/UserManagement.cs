@@ -58,7 +58,7 @@ namespace Assets.Backend
 
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var result = await client.PostAsync("/account/login", data);
+                var result = await client.PostAsync("/account/getaccount", data);
                 string resultContent = await result.Content.ReadAsStringAsync();
 
                 switch (result.StatusCode)
