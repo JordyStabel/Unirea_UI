@@ -169,7 +169,7 @@ namespace Assets.Backend
             return null;
         }
 
-        public async Task<bool> CreateTown(string authenticationToken)
+        private async Task<bool> CreateTown(string authenticationToken)
         {
             using (HttpClient client = new HttpClient())
             {
