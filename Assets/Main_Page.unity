@@ -5838,7 +5838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3cb1b0d89ca284597150dab333c0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScreen: {fileID: 2060363392}
+  startScreen: {fileID: 1316478381}
   onScreenSwitch:
     m_PersistentCalls:
       m_Calls: []
@@ -6388,12 +6388,12 @@ MonoBehaviour:
   mapInfo_UI: {fileID: 1743406007}
   tile: {fileID: 1795073218741542, guid: dcc79e2ba06b2df48947deb2f9811a93, type: 2}
   sprites:
-  - {fileID: 21300000, guid: 2ad7366b8baaa5b43be7d4d8a9370c74, type: 3}
-  - {fileID: 21300000, guid: 2ad7366b8baaa5b43be7d4d8a9370c74, type: 3}
-  - {fileID: 21300000, guid: 2ad7366b8baaa5b43be7d4d8a9370c74, type: 3}
+  - {fileID: 21300000, guid: e8603502564ffab488cff762fdfe75e7, type: 3}
+  - {fileID: 21300000, guid: e8603502564ffab488cff762fdfe75e7, type: 3}
+  - {fileID: 21300000, guid: e8603502564ffab488cff762fdfe75e7, type: 3}
   - {fileID: 21300000, guid: c9b844d4752ac2f46b09731362f3800b, type: 3}
   - {fileID: 21300000, guid: 2b041ca12270de244b549f3858444867, type: 3}
-  townSprite: {fileID: 21300000, guid: ff94727ad0c60a641a53e0153549df06, type: 3}
+  townSprite: {fileID: 21300000, guid: 6c31be50d5f969b429edc5d16184cc2b, type: 3}
   content: {fileID: 729064561}
   snappingSpeed: 2.5
   maxWidth: 30
@@ -7428,7 +7428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00006977326, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0.00004521276, y: -0.000015258789}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.0000000055879354, y: 0.50000006}
 --- !u!114 &1221136283
@@ -8142,6 +8142,8 @@ MonoBehaviour:
   passWord: {fileID: 900767596}
   passWordRepeat: {fileID: 1351981185}
   email: {fileID: 1680249883}
+  screen: {fileID: 2060363392}
+  UI_script: {fileID: 936712355}
 --- !u!1 &1301888060
 GameObject:
   m_ObjectHideFlags: 0
@@ -10699,7 +10701,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 80ded9bb373c69c428b6a10c23cf26a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d220563c819f9634eac37488e4d49afe, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
