@@ -1,4 +1,5 @@
-﻿using Unirea_UI.Models;
+﻿using Newtonsoft.Json;
+using Unirea_UI.Models;
 
 namespace Assets.Backend.Models
 {
@@ -21,6 +22,7 @@ namespace Assets.Backend.Models
         }
 
         // Constructor for the json that is received from the server
+        [JsonConstructor]
         public Player(int id, string authenticationToken, string username, string email)
         {
             Id = id;
