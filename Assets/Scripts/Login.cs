@@ -20,14 +20,16 @@ namespace Unirea.UI
         
         public async void LoginUser()
         {
-            Player input = new Player("0", "UserName", email.text, passWord.text);
+            Player input = new Player("UserName", email.text, passWord.text);
 
             Player player = await userManagement.Login(input);
 
             if (player != null)
             {
                 Player tmp = await userManagement.GetAccount(player.AuthenticationToken);
-                player.id = tmp.id;
+                player.Id = tmp.Id;
+                Debug.Log(player.Id);
+                Debug.Log(player.AuthenticationToken);
                 UI_script.GetComponent<UI_System>().SwitchToScreen(screen);
                 playerInfo.UpdatePlayer(player);
             }
