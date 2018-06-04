@@ -215,7 +215,7 @@ namespace Assets.Backend
 
                 var json = JsonConvert.SerializeObject(queries);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var result = await client.PostAsync("/town/create", data);
+                var result = await client.PostAsync("/town/all", data);
                 var resultContent = await result.Content.ReadAsStringAsync();
 
 
