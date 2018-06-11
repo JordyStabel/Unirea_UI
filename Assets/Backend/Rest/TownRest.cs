@@ -69,6 +69,11 @@ namespace Assets.Backend.Rest
                         return town;
                     case HttpStatusCode.Forbidden:
                         throw new SessionExpiredException("The player's login session has expired.");
+                    case HttpStatusCode.NotFound:
+                        throw new NotFoundException("Could not find town.");
+                    case HttpStatusCode.Unauthorized:
+                        throw new AuthenticationException("Accesstoken is not valid.");
+
                 }
             }
 
