@@ -27,6 +27,7 @@ public class Register : MonoBehaviour {
             if (await accountRest.Register(player))
             {
                 player = await accountRest.Login(player);
+                Debug.Log(player.AuthenticationToken);
 
                 if (player.AuthenticationToken != "")
                 {
