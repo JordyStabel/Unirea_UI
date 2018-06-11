@@ -621,7 +621,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7dd777f5903597248be8514aef14f793, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd2e97d08de22a04ca3885b5c29d4dd0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4793,7 +4793,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7dd777f5903597248be8514aef14f793, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c86b0f29768075429948a9012d1624d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5843,7 +5843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3cb1b0d89ca284597150dab333c0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScreen: {fileID: 1316478381}
+  startScreen: {fileID: 2060363392}
   onScreenSwitch:
     m_PersistentCalls:
       m_Calls: []
@@ -9082,7 +9082,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7dd777f5903597248be8514aef14f793, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45e5636908816384b8316966f57bc8e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10687,7 +10687,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7dd777f5903597248be8514aef14f793, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 568ba7f3622bc174899a4128f2060da9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10903,7 +10903,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d220563c819f9634eac37488e4d49afe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8702c3eae1866124f835ed647cf8a373, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
