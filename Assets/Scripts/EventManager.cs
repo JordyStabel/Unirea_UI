@@ -8,10 +8,19 @@ namespace Unirea.UI
         public delegate void PlayerUpdateEvent();
         public static event PlayerUpdateEvent playerUpdateEvent;
 
+        public delegate void ScreenUpdateEvent();
+        public static event ScreenUpdateEvent screenUpdateEvent;
+
         public static void PlayerUpdate()
         {
             if (playerUpdateEvent != null)
                 playerUpdateEvent();
+        }
+
+        public static void ScreenUpdate()
+        {
+            if (screenUpdateEvent != null)
+                screenUpdateEvent();
         }
     }
 }

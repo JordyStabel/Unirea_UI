@@ -44,6 +44,9 @@ namespace Unirea.UI
             if (onScreenStart != null)
             {
                 onScreenStart.Invoke();
+                string test = gameObject.name;
+                Debug.Log(test + " active");
+                // TODO: Create event that update all stuff on the selected screen
             }
 
             HandleAnimator("show");
