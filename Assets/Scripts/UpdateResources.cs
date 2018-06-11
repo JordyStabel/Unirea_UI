@@ -10,7 +10,6 @@ namespace Unirea.UI
         public Text ironAmount;
         public Text oilAmount;
 
-        // Use this for initialization
         void OnEnable()
         {
             EventManager.playerUpdateEvent += UpdateText;
