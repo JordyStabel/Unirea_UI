@@ -13,20 +13,13 @@ namespace Assets.Backend.Rest
 {
     class MapRest
     {
-        public async Task<List<RestTown>> GetAllTowns(string authenticationToken)
+        public async Task<List<RestTown>> GetAllTowns()
         {
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(RestConstants.Url);
 
-                var queries = new Dictionary<string, string>
-                {
-                    {"token", authenticationToken}
-                };
-
-                var json = JsonConvert.SerializeObject(queries);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var result = await client.PostAsync("/map/all", data);
+                var result = await client.GetAsync("/map/all");
                 var resultContent = await result.Content.ReadAsStringAsync();
 
                 switch (result.StatusCode)
