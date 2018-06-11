@@ -13,7 +13,7 @@ namespace Assets.Backend.Rest
 {
     class MapRest
     {
-        public async Task<List<RestTown>> GetAllTowns()
+        public async Task<List<Map>> GetAllTowns()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -25,10 +25,8 @@ namespace Assets.Backend.Rest
                 switch (result.StatusCode)
                 {
                     case HttpStatusCode.OK:
-                        List<RestTown> towns = JsonConvert.DeserializeObject<List<RestTown>>(resultContent);
-                        return towns;
-                    case HttpStatusCode.Forbidden:
-                        throw new SessionExpiredException("The player's login session has expired.");
+                        RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(resultContent);
+                        return rootObject.maps;
                 }
             }
 
