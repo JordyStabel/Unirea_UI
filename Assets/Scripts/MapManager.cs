@@ -103,7 +103,7 @@ public class MapManager : MonoBehaviour {
         string token = PlayerInfo.currentPlayer.AuthenticationToken;
         Debug.Log(token);
 
-        allTowns = await mapRest.GetAllTowns(token);
+        allTowns = await mapRest.GetAllTowns();
 
         foreach (RestTown town in allTowns)
         {

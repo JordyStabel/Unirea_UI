@@ -635,6 +635,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 103717161}
+--- !u!1 &111379764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 111379765}
+  m_Layer: 0
+  m_Name: background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111379765
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111379764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128527599
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,7 +4083,7 @@ MonoBehaviour:
   m_CellSize: {x: 250, y: 250}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
-  m_ConstraintCount: 30
+  m_ConstraintCount: 50
 --- !u!1 &767717007
 GameObject:
   m_ObjectHideFlags: 0
@@ -5843,7 +5871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3cb1b0d89ca284597150dab333c0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScreen: {fileID: 2060363392}
+  startScreen: {fileID: 1316478381}
   onScreenSwitch:
     m_PersistentCalls:
       m_Calls: []
@@ -6519,8 +6547,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e8603502564ffab488cff762fdfe75e7, type: 3}
   - {fileID: 21300000, guid: e8603502564ffab488cff762fdfe75e7, type: 3}
   - {fileID: 21300000, guid: e8603502564ffab488cff762fdfe75e7, type: 3}
-  - {fileID: 21300000, guid: c9b844d4752ac2f46b09731362f3800b, type: 3}
-  - {fileID: 21300000, guid: 2b041ca12270de244b549f3858444867, type: 3}
+  - {fileID: 21300000, guid: 8fbe4e32fdc16384bb355f48756bb638, type: 3}
+  - {fileID: 21300000, guid: 96cae68aa1a1af34e84bfd7c1d0a5f27, type: 3}
   townSprite: {fileID: 21300000, guid: 6c31be50d5f969b429edc5d16184cc2b, type: 3}
   content: {fileID: 729064561}
   snappingSpeed: 2.5
@@ -6831,6 +6859,34 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1036552554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1036552555}
+  m_Layer: 0
+  m_Name: background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1036552555
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1036552554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1037377367
 GameObject:
   m_ObjectHideFlags: 0
@@ -10903,7 +10959,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8702c3eae1866124f835ed647cf8a373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d9fd37b4c47a6e48a4558d7efd0de59, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
