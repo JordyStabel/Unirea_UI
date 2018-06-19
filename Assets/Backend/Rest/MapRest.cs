@@ -26,7 +26,7 @@ namespace Assets.Backend.Rest
                 {
                     case HttpStatusCode.OK:
                         RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(resultContent);
-                        return rootObject.maps.;
+                        return rootObject.maps;
                 }
             }
 
