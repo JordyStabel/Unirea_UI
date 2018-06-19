@@ -12,7 +12,7 @@ public class Register : MonoBehaviour {
     public InputField email;
 
     public UI_Screen screen;
-
+    public PlayerInfo playerInfo;
     public GameObject UI_script;
 
     private AccountRest accountRest = new AccountRest();
@@ -27,7 +27,7 @@ public class Register : MonoBehaviour {
             if (await accountRest.Register(player))
             {
                 player = await accountRest.Login(player);
-                Debug.Log(player.AuthenticationToken);
+                playerInfo.UpdatePlayer(player);
 
                 if (player.AuthenticationToken != "")
                 {

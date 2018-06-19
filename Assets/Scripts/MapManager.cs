@@ -10,9 +10,9 @@ namespace Unirea.UI
 {
     public class MapManager : MonoBehaviour
     {
-
         public static MapManager instance;
         public Dropdown townSelector;
+        public InputField townSearch;
         public MapInfo_UI mapInfo_UI;
 
         public GameObject tile;
@@ -26,8 +26,7 @@ namespace Unirea.UI
 
         private GameObject[,] tileArray;
 
-        private List<Vector2> townList = new List<Vector2>();
-        private List<TownRest> allTowns = new List<TownRest>();
+        private List<Map> townList = new List<Map>();
 
         private MapRest mapRest = new MapRest();
 
@@ -43,11 +42,8 @@ namespace Unirea.UI
         void Start()
         {
             tileArray = new GameObject[maxWidth, maxHeight];
-
-            townList.Add(new Vector2(1, 4));
-            townList.Add(new Vector2(3, 14));
-            townList.Add(new Vector2(7, 7));
-
+            townSearch.onValueChanged.AddListener(delegate { SearchTowns(townSearch.text); });
+            townSelector.onValueChanged.AddListener(delegate { TownFromSelector(townSelector.options[townSelector.value].text); });
             GenerateMap();
         }
 
@@ -108,11 +104,13 @@ namespace Unirea.UI
         public async void UpdateMap()
         {
             string token = PlayerInfo.currentPlayer.AuthenticationToken;
-
             List<Map> map = await mapRest.GetAllTowns();
-
+            townSelector.ClearOptions();
             foreach (Map town in map)
+            {
+                townList.Add(town);
                 CreateTown(town);
+            }
         }
 
         public void CreateTown(Map town)
@@ -120,6 +118,39 @@ namespace Unirea.UI
             tileArray[Convert.ToInt32(town.x), Convert.ToInt32(town.y)].GetComponent<Image>().sprite = townSprite;
             Tile newTown = tileArray[Convert.ToInt32(town.x), Convert.ToInt32(town.y)].GetComponent<Tile>();
             newTown.name = "Henk " + town.id;
+            townSelector.options.Add(new Dropdown.OptionData(town.x + "," + town.y + "," + town.id));
+        }
+
+        public void SearchTowns(string input)
+        {
+            townSelector.ClearOptions();
+
+            if (input != "")
+            {
+                foreach (Map town in townList)
+                {
+                    if (town.id.ToString().Contains(input))
+                    {
+                        townSelector.options.Add(new Dropdown.OptionData(town.x + "," + town.y + "," + town.id));
+                    }
+                }
+            }
+            else
+            {
+                foreach (Map town in townList)
+                {
+                    townSelector.options.Add(new Dropdown.OptionData(town.x + "," + town.y + "," + town.id));
+                }
+            }
+        }
+
+        public void TownFromSelector(string input)
+        {
+            int x = Int32.Parse(input.Split(',')[0]);
+            int y = Int32.Parse(input.Split(',')[1]);
+
+            StopAllCoroutines();
+            StartCoroutine(SnapToTown(new Vector2(y, x)));
         }
     }
 }
