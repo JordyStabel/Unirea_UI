@@ -26,9 +26,6 @@ namespace Unirea.UI
             if (player != null)
             {
                 Player tmp = await accountRest.GetAccount(player.AuthenticationToken);
-                player.Id = tmp.Id;
-                Debug.Log(player.Id);
-                Debug.Log(player.AuthenticationToken);
                 UI_script.GetComponent<UI_System>().SwitchToScreen(screen);
                 playerInfo.UpdatePlayer(player);
             }

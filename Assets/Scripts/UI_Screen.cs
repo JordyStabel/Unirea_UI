@@ -26,6 +26,16 @@ namespace Unirea.UI
 
         #region Methods
 
+        private void OnEnable()
+        {
+            EventManager.mapUpdateEvent += EventNotifier;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.mapUpdateEvent -= EventNotifier;
+        }
+
         // Use this for initialization
         void Awake()
         {
@@ -44,13 +54,19 @@ namespace Unirea.UI
             if (onScreenStart != null)
             {
                 onScreenStart.Invoke();
-                string test = gameObject.name;
-                Debug.Log(test + " active");
-                // TODO: Create event that update all stuff on the selected screen
-            }
+                switch (gameObject.name)
+                {
+                    case "WorldMap_Screen":
+                        EventManager.MapUpdate();
+                        EventNotifier();
+                        break;
 
+                };
+            }
             HandleAnimator("show");
         }
+
+        private void EventNotifier() { }
 
         public virtual void CloseScreen()
         {
