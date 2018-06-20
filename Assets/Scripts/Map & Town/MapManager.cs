@@ -78,7 +78,7 @@ namespace Unirea.UI
 
         public void SelectTown(Tile tile)
         {
-            if (tile.name.Contains("Henk"))
+            if (tile.name != null)
                 mapInfo_UI.Show(tile);
             else
                 mapInfo_UI.Hide();
@@ -117,7 +117,7 @@ namespace Unirea.UI
         {
             tileArray[Convert.ToInt32(town.x), Convert.ToInt32(town.y)].GetComponent<Image>().sprite = townSprite;
             Tile newTown = tileArray[Convert.ToInt32(town.x), Convert.ToInt32(town.y)].GetComponent<Tile>();
-            newTown.name = "Henk " + town.id;
+            newTown.name = town.id.ToString();
             townSelector.options.Add(new Dropdown.OptionData(town.x + "," + town.y + "," + town.id));
         }
 
