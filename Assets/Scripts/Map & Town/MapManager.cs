@@ -118,6 +118,7 @@ namespace Unirea.UI
             tileArray[Convert.ToInt32(town.x), Convert.ToInt32(town.y)].GetComponent<Image>().sprite = townSprite;
             Tile newTown = tileArray[Convert.ToInt32(town.x), Convert.ToInt32(town.y)].GetComponent<Tile>();
             newTown.name = town.id.ToString();
+            newTown.town_id = town.id;
             townSelector.options.Add(new Dropdown.OptionData(town.x + "," + town.y + "," + town.id));
         }
 
@@ -148,7 +149,6 @@ namespace Unirea.UI
         {
             int x = Int32.Parse(input.Split(',')[0]);
             int y = Int32.Parse(input.Split(',')[1]);
-
             StopAllCoroutines();
             StartCoroutine(SnapToTown(new Vector2(y, x)));
         }

@@ -8,6 +8,7 @@ namespace Unirea.UI
         MapManager mapManager;
 
         public Vector2 coordinates;
+        public int town_id;
 
         void Start()
         {
