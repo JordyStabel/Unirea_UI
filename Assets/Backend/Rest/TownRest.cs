@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Assets.Backend.Exceptions;
 using Assets.Backend.Models;
+using Assets.Backend.RestModels;
 using Newtonsoft.Json;
 
 namespace Assets.Backend.Rest
 {
     class TownRest
     {
-        public async Task<Town> GetTown(int townId, string authenticationToken)
+        public async Task<PlayerTown> GetTown(int townId, string authenticationToken)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -30,7 +31,7 @@ namespace Assets.Backend.Rest
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/town/get", data);
                 var resultContent = await result.Content.ReadAsStringAsync();
-                var town = JsonConvert.DeserializeObject<Town>(resultContent);
+                var town = JsonConvert.DeserializeObject<PlayerTown>(resultContent);
 
                 switch (result.StatusCode)
                 {
