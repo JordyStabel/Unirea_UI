@@ -13,7 +13,7 @@ namespace Assets.Backend.Rest
 {
     class TownRest
     {
-        public async Task<Town> GetTown(string authenticationToken)
+        public async Task<Town> GetTown(int townId, string authenticationToken)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -21,6 +21,7 @@ namespace Assets.Backend.Rest
 
                 var queries = new Dictionary<string, string>
                 {
+                    {"id", townId.ToString() },
                     {"token", authenticationToken}
 
                 };
