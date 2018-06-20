@@ -15,6 +15,8 @@ namespace Unirea.UI
         {
             tile = _tile;
 
+            
+
             townName.text = _tile.name + "\n" + "Henk";
 
             UI.SetActive(true);
