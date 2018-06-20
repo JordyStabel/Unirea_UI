@@ -56,7 +56,6 @@ namespace Assets.Backend.Rest
                 var queries = new Dictionary<string, string>
                 {
                     {"token", authenticationToken}
-
                 };
 
                 var json = JsonConvert.SerializeObject(queries);
