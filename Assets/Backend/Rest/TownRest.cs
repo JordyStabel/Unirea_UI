@@ -47,7 +47,7 @@ namespace Assets.Backend.Rest
             throw new InvalidOperationException("Reached invalid state.");
         }
 
-        public async Task<Town> CreateTown(string authenticationToken)
+        public async Task<PlayerTown> CreateTown(string authenticationToken)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -56,6 +56,7 @@ namespace Assets.Backend.Rest
                 var queries = new Dictionary<string, string>
                 {
                     {"token", authenticationToken}
+
                 };
 
                 var json = JsonConvert.SerializeObject(queries);
@@ -66,7 +67,7 @@ namespace Assets.Backend.Rest
                 switch (result.StatusCode)
                 {
                     case HttpStatusCode.OK:
-                        var town = JsonConvert.DeserializeObject<Town>(resultContent);
+                        var town = JsonConvert.DeserializeObject<PlayerTown>(resultContent);
                         return town;
                     case HttpStatusCode.Forbidden:
                         throw new SessionExpiredException("The player's login session has expired.");
@@ -74,6 +75,8 @@ namespace Assets.Backend.Rest
                         throw new NotFoundException("Could not find town.");
                     case HttpStatusCode.Unauthorized:
                         throw new AuthenticationException("Accesstoken is not valid.");
+                    case HttpStatusCode.BadRequest:
+                        throw new PlayerAlreadyHasTownException("The specified player already has a town.");
 
                 }
             }
@@ -81,7 +84,7 @@ namespace Assets.Backend.Rest
             throw new InvalidOperationException("Reached invalid state.");
         }
 
-        public async Task<List<Town>> GetAllTownsFromPlayer(string authenticationToken, int playerId)
+        public async Task<List<PlayerTown>> GetAllTownsFromPlayer(string authenticationToken, int playerId)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -101,7 +104,7 @@ namespace Assets.Backend.Rest
                 switch (result.StatusCode)
                 {
                     case HttpStatusCode.OK:
-                        List<Town> towns = JsonConvert.DeserializeObject<List<Town>>(resultContent);
+                        List<PlayerTown> towns = JsonConvert.DeserializeObject<List<PlayerTown>>(resultContent);
                         return towns;
                     case HttpStatusCode.NotFound:
                         throw new NotFoundException("Could not find towns of specified player.");
