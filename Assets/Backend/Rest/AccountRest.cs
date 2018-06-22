@@ -95,6 +95,7 @@ namespace Assets.Backend.Rest
                 {
                     case HttpStatusCode.OK:
                         Player player = JsonConvert.DeserializeObject<Player>(resultContent);
+                        player.AuthenticationToken = authenticationToken;
                         return player;
                     case HttpStatusCode.NotFound:
                         throw new NotFoundException("The specified player was not found.");
