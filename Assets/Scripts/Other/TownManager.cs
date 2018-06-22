@@ -28,11 +28,18 @@ namespace Unirea.UI
             EventManager.townUpdateEvent -= UpdateTownView;
         }
 
-        async void UpdateTownView()
+        private void UpdateTownView()
         {
             player = playerInfo.GetPlayer();
+            Debug.Log(player.AuthenticationToken + " / " + player.Id);
+            GetTown();
+        }
 
-            town = await townRest.GetTown(townRest.GetAllTownsFromPlayer(player.AuthenticationToken, player.Id).Id, player.AuthenticationToken);
+        private async void GetTown()
+        {
+            List<PlayerTown> towns = await townRest.GetAllTownsFromPlayer(player.AuthenticationToken, player.Id);
+            town = towns[0];
+            Debug.Log(town.townBuildings);
         }
     }
 }
