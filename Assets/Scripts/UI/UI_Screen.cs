@@ -26,16 +26,6 @@ namespace Unirea.UI
 
         #region Methods
 
-        private void OnEnable()
-        {
-            EventManager.mapUpdateEvent += EventNotifier;
-        }
-
-        private void OnDisable()
-        {
-            EventManager.mapUpdateEvent -= EventNotifier;
-        }
-
         // Use this for initialization
         void Awake()
         {
@@ -50,7 +40,6 @@ namespace Unirea.UI
 
         public virtual void StartScreen()
         {
-            // If there are listeners --> start event
             if (onScreenStart != null)
             {
                 onScreenStart.Invoke();
@@ -58,7 +47,10 @@ namespace Unirea.UI
                 {
                     case "WorldMap_Screen":
                         EventManager.MapUpdate();
-                        EventNotifier();
+                        break;
+
+                    case "CityOverview_Screen":
+                        EventManager.TownUpdate();
                         break;
 
                 };

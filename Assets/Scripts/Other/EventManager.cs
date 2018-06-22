@@ -14,6 +14,9 @@ namespace Unirea.UI
         public delegate void MapUpdateEvent();
         public static event MapUpdateEvent mapUpdateEvent;
 
+        public delegate void TownUpdateEvent();
+        public static event TownUpdateEvent townUpdateEvent;
+
         public static void PlayerUpdate()
         {
             if (playerUpdateEvent != null)
@@ -23,7 +26,6 @@ namespace Unirea.UI
         public static void ScreenUpdate()
         {
             if (screenUpdateEvent != null)
-                Debug.Log("Been here");
                 screenUpdateEvent();
         }
 
@@ -32,7 +34,10 @@ namespace Unirea.UI
             if (mapUpdateEvent != null)
                 mapUpdateEvent();
         }
-
-
+        public static void TownUpdate()
+        {
+            if (townUpdateEvent != null)
+                townUpdateEvent();
+        }
     }
 }
