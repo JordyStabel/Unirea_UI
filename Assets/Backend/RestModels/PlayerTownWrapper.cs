@@ -16,6 +16,7 @@ namespace Assets.Backend.RestModels
 
     public class PlayerTown
     {
+        public int id { get; set; }
         public TownResources townResources { get; set; }
         public TownBuildings townBuildings { get; set; }
         public int x { get; set; }
