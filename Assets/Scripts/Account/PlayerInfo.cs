@@ -31,5 +31,10 @@ public class PlayerInfo : MonoBehaviour {
         return currentPlayer.AuthenticationToken;
     }
 
+    public Player GetPlayer()
+    {
+        return currentPlayer;
+    }
+
     private void EventNotifier() { }
 }
