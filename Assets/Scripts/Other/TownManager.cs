@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Assets.Backend.Rest;
 using Assets.Backend.RestModels;
 using Assets.Backend.Models;
+using Assets.Backend.Models.Buildings;
 
 namespace Unirea.UI
 {
@@ -37,8 +38,12 @@ namespace Unirea.UI
 
         private async void GetTown()
         {
-            List<PlayerTown> towns = await townRest.GetAllTownsFromPlayer(player.AuthenticationToken, player.Id);
-            town = towns[0];
+            town = await townRest.GetTown(4, player.AuthenticationToken);
+
+            //List<PlayerTown> towns = await townRest.GetAllTownsFromPlayer(player.AuthenticationToken, player.Id);
+            //town = towns[0];
+            List<Building> buildings = new List<Building>();
+            //foreach (Building building in town.townBuildings)
             Debug.Log(town.townBuildings);
         }
     }

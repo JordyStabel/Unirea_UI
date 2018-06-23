@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressDetailsUI : MonoBehaviour {
+public class BuildingDetailsUI : MonoBehaviour {
 
     public GameObject UI;
 
