@@ -16,6 +16,7 @@ namespace Unirea.UI
         private PlayerInfo playerInfo;
 
         private TownRest townRest = new TownRest();
+        private MapRest mapRest = new MapRest();
         private PlayerTown town;
         private Player player;
 
@@ -38,18 +39,28 @@ namespace Unirea.UI
 
         private async void GetTown()
         {
-            town = await townRest.GetTown(4, player.AuthenticationToken);
-            Debug.Log(town.townId);
-            Debug.Log(town.townBuildings);
-            //List<Building> buildings = town.townBuildings;
-            //Building building = town.townBuildings[1];
+            List<Map> maps = await mapRest.GetAllTowns();
+            foreach (Map map in maps)
+            {
+                town = await townRest.GetTown(map.id, player.AuthenticationToken);
 
-            List<PlayerTown> towns = await townRest.GetAllTownsFromPlayer(player.AuthenticationToken, player.Id);
-            town = towns[0];
-            List<BuildingUI> buildings = new List<BuildingUI>();
-            Debug.Log(town.townId);
-            Debug.Log(towns[1].townId);
-            Debug.Log(towns[2].townId);
+                if (town.id == player.Id)
+                    break;
+            }
+            Debug.Log(town.username);
+
+            //town = await townRest.GetTown(4, player.AuthenticationToken);
+            //Debug.Log(town.townId);
+            //Debug.Log(town.townBuildings);
+            ////List<Building> buildings = town.townBuildings;
+            ////Building building = town.townBuildings[1];
+
+            //List<PlayerTown> towns = await townRest.GetAllTownsFromPlayer(player.AuthenticationToken, player.Id);
+            //town = towns[0];
+            //List<BuildingUI> buildings = new List<BuildingUI>();
+            //Debug.Log(town.townId);
+            //Debug.Log(towns[1].townId);
+            //Debug.Log(towns[2].townId);
         }
     }
 }
