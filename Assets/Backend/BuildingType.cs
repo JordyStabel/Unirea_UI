@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Backend
 {
-    enum BuildingType
+    public enum BuildingType
     {
         OilRefinery = 1,
         IronMine = 2,
