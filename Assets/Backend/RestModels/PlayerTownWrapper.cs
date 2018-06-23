@@ -23,5 +23,6 @@ namespace Assets.Backend.RestModels
         public int y { get; set; }
         public string username { get; set; }
         public string name { get; set; }
+        public int townId { get; set; }
     }
 }
