@@ -43,8 +43,8 @@ namespace Unirea.UI
             foreach (Map map in maps)
             {
                 town = await townRest.GetTown(map.id, player.AuthenticationToken);
-
-                if (town.id == player.Id)
+                Debug.Log(town.townId);
+                if (town.username == player.Username)
                     break;
             }
             Debug.Log(town.username);
