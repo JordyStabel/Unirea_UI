@@ -6,6 +6,8 @@ public class BuildingDetailsUI : MonoBehaviour {
 
     public GameObject UI;
 
+    public Image image;
+
     public Text level;
     public Text duration;
     public Text objectName;
@@ -16,12 +18,13 @@ public class BuildingDetailsUI : MonoBehaviour {
     public void ToggleUI(Image image)
     {
         // Flip the isActive state of the UI object
+        SetImage(image);
         UI.SetActive(!UI.activeSelf);
     }
 
-    private void SetImage()
+    private void SetImage(Image _image)
     {
-
+        image.sprite = _image.sprite;
     }
 
     private void SetImage(BuildingType buildingType)
