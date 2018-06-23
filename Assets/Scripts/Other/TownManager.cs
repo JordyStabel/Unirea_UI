@@ -38,13 +38,15 @@ namespace Unirea.UI
 
         private async void GetTown()
         {
-            town = await townRest.GetTown(4, player.AuthenticationToken);
+            //town = await townRest.GetTown(4, player.AuthenticationToken);
+            //Debug.Log(town.townId);
 
-            //List<PlayerTown> towns = await townRest.GetAllTownsFromPlayer(player.AuthenticationToken, player.Id);
-            //town = towns[0];
+            List<PlayerTown> towns = await townRest.GetAllTownsFromPlayer(player.AuthenticationToken, player.Id);
+            town = towns[0];
             List<Building> buildings = new List<Building>();
-            //foreach (Building building in town.townBuildings)
-            Debug.Log(town.townBuildings);
+            Debug.Log(town.townId);
+            Debug.Log(towns[1].townId);
+            Debug.Log(towns[2].townId);
         }
     }
 }

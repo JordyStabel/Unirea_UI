@@ -1743,12 +1743,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 936712357}
-        m_MethodName: SwitchToScreen
+      - m_Target: {fileID: 614213298}
+        m_MethodName: ToggleUI
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 986409429}
-          m_ObjectArgumentAssemblyTypeName: Unirea.UI.UI_Screen, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1768,15 +1768,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: bb1c159e9129c1f4eab8d4c2fd273bfd, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3328,9 +3328,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 614213293}
+  level: {fileID: 0}
   duration: {fileID: 0}
   objectName: {fileID: 0}
-  cancel: {fileID: 0}
+  woodCost: {fileID: 0}
+  ironCost: {fileID: 0}
+  oilText: {fileID: 0}
 --- !u!1 &550297622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,9 +3460,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 609956650}
+  level: {fileID: 0}
   duration: {fileID: 0}
   objectName: {fileID: 0}
-  cancel: {fileID: 0}
+  woodCost: {fileID: 0}
+  ironCost: {fileID: 0}
+  oilText: {fileID: 0}
 --- !u!114 &609956653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3760,9 +3766,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 614213293}
+  level: {fileID: 0}
   duration: {fileID: 0}
   objectName: {fileID: 0}
-  cancel: {fileID: 0}
+  woodCost: {fileID: 0}
+  ironCost: {fileID: 0}
+  oilText: {fileID: 0}
 --- !u!1 &617233949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,7 +3920,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9bd6ae254a142ea44857a901ff91e325, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9324,7 +9333,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 614213298}
         m_MethodName: ToggleUI
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
