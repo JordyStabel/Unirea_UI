@@ -59,5 +59,6 @@ public class BuildingDetailsUI : MonoBehaviour {
     public async void IncreaseBuildingLevel(BuildingType buildingType)
     {
         bool responds = await buildingRest.LevelUpBuilding(playerInfo.GetAccesToken(), PlayerInfo.currrentTown.townId, buildingType);
+        Debug.Log("Upgrading building: " + responds);
     }
 }

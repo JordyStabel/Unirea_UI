@@ -24,7 +24,7 @@ namespace Unirea.UI
         public delegate void BuildingImageUpdateEvent();
         public static event BuildingImageUpdateEvent buildingImageUpdateEvent;
 
-        public delegate void ResourceUpdateEvent(ResourceType resourceType, int amount);
+        public delegate void ResourceUpdateEvent();
         public static event ResourceUpdateEvent resourceUpdateEvent;
 
         public static void PlayerUpdate()
@@ -55,6 +55,12 @@ namespace Unirea.UI
         {
             if (buildingImageUpdateEvent != null)
                 buildingImageUpdateEvent();
+        }
+
+        public static void ResourceUpdate()
+        {
+            if (resourceUpdateEvent != null)
+                resourceUpdateEvent();
         }
     }
 }

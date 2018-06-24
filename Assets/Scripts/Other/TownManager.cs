@@ -47,6 +47,7 @@ namespace Unirea.UI
                 {
                     playerInfo.UpdateTown(town);
                     EventManager.BuildingImageUpdate();
+                    EventManager.ResourceUpdate();
                     break;
                 }
             }
