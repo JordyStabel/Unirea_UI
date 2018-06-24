@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.Backend;
 using Assets.Backend.Rest;
 using Assets.Backend.RestModels;
 using Assets.Backend.Models;
@@ -46,6 +47,12 @@ namespace Unirea.UI
                 Debug.Log(town.townId);
                 if (town.username == player.Username)
                     break;
+            }
+
+            foreach (TownBuilding building in town.townBuildings)
+            {
+                Debug.Log(building.name + " / " + building.level);
+                EventManager.BuildingImageUpdate((BuildingType)building.id, building.level);
             }
             Debug.Log(town.username);
 
