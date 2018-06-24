@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114692494055310160}
   - component: {fileID: 114121726244221882}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
+  town_id: 0
 --- !u!114 &114351250761047132
 MonoBehaviour:
   m_ObjectHideFlags: 1

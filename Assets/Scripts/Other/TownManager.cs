@@ -34,7 +34,6 @@ namespace Unirea.UI
         private void UpdateTownView()
         {
             player = playerInfo.GetPlayer();
-            Debug.Log(player.AuthenticationToken + " / " + player.Id);
             GetTown();
         }
 
@@ -44,30 +43,14 @@ namespace Unirea.UI
             foreach (Map map in maps)
             {
                 town = await townRest.GetTown(map.id, player.AuthenticationToken);
-                Debug.Log(town.townId);
                 if (town.username == player.Username)
+                {
+                    playerInfo.UpdateTown(town);
+                    EventManager.BuildingImageUpdate();
+                    EventManager.ResourceUpdate();
                     break;
+                }
             }
-
-            foreach (TownBuilding building in town.townBuildings)
-            {
-                Debug.Log(building.name + " / " + building.level);
-                EventManager.BuildingImageUpdate((BuildingType)building.id, building.level);
-            }
-            Debug.Log(town.username);
-
-            //town = await townRest.GetTown(4, player.AuthenticationToken);
-            //Debug.Log(town.townId);
-            //Debug.Log(town.townBuildings);
-            ////List<Building> buildings = town.townBuildings;
-            ////Building building = town.townBuildings[1];
-
-            //List<PlayerTown> towns = await townRest.GetAllTownsFromPlayer(player.AuthenticationToken, player.Id);
-            //town = towns[0];
-            //List<BuildingUI> buildings = new List<BuildingUI>();
-            //Debug.Log(town.townId);
-            //Debug.Log(towns[1].townId);
-            //Debug.Log(towns[2].townId);
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using Assets.Backend.Models;
 using Assets.Backend;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Unirea.UI
 {
@@ -18,8 +21,11 @@ namespace Unirea.UI
         public delegate void TownUpdateEvent();
         public static event TownUpdateEvent townUpdateEvent;
 
-        public delegate void BuildingImageUpdateEvent(BuildingType buildingType, int level);
+        public delegate void BuildingImageUpdateEvent();
         public static event BuildingImageUpdateEvent buildingImageUpdateEvent;
+
+        public delegate void ResourceUpdateEvent();
+        public static event ResourceUpdateEvent resourceUpdateEvent;
 
         public static void PlayerUpdate()
         {
@@ -38,16 +44,23 @@ namespace Unirea.UI
             if (mapUpdateEvent != null)
                 mapUpdateEvent();
         }
+
         public static void TownUpdate()
         {
             if (townUpdateEvent != null)
                 townUpdateEvent();
         }
 
-        public static void BuildingImageUpdate(BuildingType buildingType, int level)
+        public static void BuildingImageUpdate()
         {
             if (buildingImageUpdateEvent != null)
-                buildingImageUpdateEvent(buildingType, level);
+                buildingImageUpdateEvent();
+        }
+
+        public static void ResourceUpdate()
+        {
+            if (resourceUpdateEvent != null)
+                resourceUpdateEvent();
         }
     }
 }

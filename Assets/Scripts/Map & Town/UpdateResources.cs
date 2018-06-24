@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Backend.Models;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Unirea.UI
@@ -12,21 +13,20 @@ namespace Unirea.UI
 
         void OnEnable()
         {
-            EventManager.playerUpdateEvent += UpdateText;
+            EventManager.resourceUpdateEvent += UpdateText;
         }
 
         private void OnDisable()
         {
-            EventManager.playerUpdateEvent -= UpdateText;
+            EventManager.resourceUpdateEvent -= UpdateText;
         }
 
         public void UpdateText()
         {
-            woodAmount.text = "15";
-            ironAmount.text = "25";
-            oilAmount.text = "35";
-
-            if (PlayerInfo.isLoggedIn) cityName.text = PlayerInfo.currentPlayer.Username + "'s City";
+            woodAmount.text = PlayerInfo.currrentTown.townResources[(int)ResourceType.Wood - 1].amount.ToString();
+            ironAmount.text = PlayerInfo.currrentTown.townResources[(int)ResourceType.Iron - 1].amount.ToString();
+            oilAmount.text = PlayerInfo.currrentTown.townResources[(int)ResourceType.Oil - 1].amount.ToString();
+            cityName.text = PlayerInfo.currrentTown.name;
         }
     }
 }
