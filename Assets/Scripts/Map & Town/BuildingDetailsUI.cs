@@ -4,10 +4,13 @@ using Assets.Backend;
 using Assets.Backend.Rest;
 using Assets.Backend.RestModels;
 using Assets.Backend.Models;
+using Unirea.UI;
 
 public class BuildingDetailsUI : MonoBehaviour {
 
     public GameObject UI;
+    public GameObject UI_script;
+    public UI_Screen screen;
     public PlayerInfo playerInfo;
 
     public Image image;
@@ -60,5 +63,13 @@ public class BuildingDetailsUI : MonoBehaviour {
     {
         bool responds = await buildingRest.LevelUpBuilding(playerInfo.GetAccesToken(), PlayerInfo.currrentTown.townId, buildingType);
         Debug.Log("Upgrading building: " + responds);
+    }
+
+    public void EnterBuilding()
+    {
+        if (building.name == BuildingType.Barracks.ToString())
+        {
+            UI_script.GetComponent<UI_System>().SwitchToScreen(screen);
+        }
     }
 }

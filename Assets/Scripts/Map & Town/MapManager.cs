@@ -28,7 +28,9 @@ namespace Unirea.UI
 
         private List<Map> townList = new List<Map>();
 
+        private ArmyRest armyRest = new ArmyRest();
         private MapRest mapRest = new MapRest();
+        private Tile currentTile;
 
         void Awake()
         {
@@ -79,7 +81,10 @@ namespace Unirea.UI
         public void SelectTown(Tile tile)
         {
             if (tile.name != null)
+            {
+                currentTile = tile;
                 mapInfo_UI.Show(tile);
+            }
             else
                 mapInfo_UI.Hide();
 
@@ -150,6 +155,12 @@ namespace Unirea.UI
             int y = Int32.Parse(input.Split(',')[1]);
             StopAllCoroutines();
             StartCoroutine(SnapToTown(new Vector2(y, x)));
+        }
+
+        public async void AttackTown()
+        {
+            // TODO: Fix Troops and amount
+            await armyRest.MoveArmy(PlayerInfo.currentPlayer.AuthenticationToken, null, Int32.Parse(tile.name.Split(',')[2]), 2, PlayerInfo.currrentTown.townId);
         }
     }
 }
