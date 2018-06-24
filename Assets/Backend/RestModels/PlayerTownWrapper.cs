@@ -1,22 +1,23 @@
 ﻿using System.Collections.Generic;
+using Assets.Backend.Models;
 
 namespace Assets.Backend.RestModels
 {
     public class TownResource
     {
-        public string name { get; set; }
+        public ResourceType rescourceType { get; set; }
         public int amount { get; set; }
     }
 
     public class UpgradeCost
     {
-        public string name { get; set; }
+        public ResourceType rescourceType { get; set; }
         public int amount { get; set; }
     }
 
     public class TownBuilding
     {
-        public int id { get; set; }
+        public BuildingType buildingType { get; set; }
         public string name { get; set; }
         public int level { get; set; }
         public List<UpgradeCost> upgradeCost { get; set; }

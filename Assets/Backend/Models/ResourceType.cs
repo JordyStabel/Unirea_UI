@@ -2,8 +2,8 @@
 {
     public enum ResourceType
     {
-        Oil,
-        Iron,
-        Wood
+        Oil=1,
+        Iron=2,
+        Wood=3
     }
 }
