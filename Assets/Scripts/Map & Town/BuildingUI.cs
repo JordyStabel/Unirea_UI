@@ -7,14 +7,18 @@ namespace Unirea.UI
 {
     public class BuildingUI : MonoBehaviour
     {
-        [SerializeField]
-        private Sprite[] allBuildingSprites;
+        public Sprite[] allBuildingSprites;
 
         public BuildingType buildingType;
 
         public RectTransform buildingCanvas;
 
         private TownBuilding building;
+
+        void Awake()
+        {
+            buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[0];
+        }
 
         private void OnEnable()
         {
@@ -40,7 +44,6 @@ namespace Unirea.UI
             }
             catch
             {
-                // No image
                 buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[0];
                 buildingCanvas.GetComponentInChildren<Text>().text = building.name + " " + building.level;
                 Debug.Log("Sprites aren't made yet.");
