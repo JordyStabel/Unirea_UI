@@ -5,19 +5,19 @@ namespace Assets.Backend.RestModels
 {
     public class TownResource
     {
-        public ResourceType rescourceType { get; set; }
+        public ResourceType id { get; set; }
         public int amount { get; set; }
     }
 
     public class UpgradeCost
     {
-        public ResourceType rescourceType { get; set; }
+        public ResourceType id { get; set; }
         public int amount { get; set; }
     }
 
     public class TownBuilding
     {
-        public BuildingType buildingType { get; set; }
+        public BuildingType id { get; set; }
         public string name { get; set; }
         public int level { get; set; }
         public List<UpgradeCost> upgradeCost { get; set; }
