@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using Assets.Backend;
 using Assets.Backend.Rest;
+using Assets.Backend.RestModels;
+using Assets.Backend.Models;
 
 public class BuildingDetailsUI : MonoBehaviour {
 
@@ -17,6 +19,8 @@ public class BuildingDetailsUI : MonoBehaviour {
     public Text ironCost;
     public Text oilText;
 
+    private TownBuilding building;
+
     private BuildingRest buildingRest = new BuildingRest();
 
     public void ToggleUI(Image image)
@@ -26,31 +30,34 @@ public class BuildingDetailsUI : MonoBehaviour {
         UI.SetActive(!UI.activeSelf);
     }
 
+    public void GetBuildingType(int buidlingID)
+    {
+        building = PlayerInfo.currrentTown.townBuildings[(buidlingID - 1)];
+        UpdateAllText();
+    }
+
     private void SetImage(Image _image)
     {
         image.sprite = _image.sprite;
     }
 
-    public void Something()
+    private void UpdateAllText()
+    {
+        objectName.text = building.name;
+        level.text = building.level.ToString();
+        woodCost.text = (building.upgradeCost[(int)ResourceType.Wood - 1].amount).ToString();
+        ironCost.text = (building.upgradeCost[(int)ResourceType.Iron - 1].amount).ToString();
+        oilText.text = (building.upgradeCost[(int)ResourceType.Oil - 1].amount).ToString();
+    }
+
+    public void LevelUpBuilding()
     {
         // Can't call async method directly from Unity
-        IncreaseBuildingLevel(BuildingType.Foundry);
+        IncreaseBuildingLevel(building.id);
     }
 
     public async void IncreaseBuildingLevel(BuildingType buildingType)
     {
-        // TODO: Implement with the correct values
-        bool responds = await buildingRest.LevelUpBuilding(playerInfo.GetAccesToken(), 4, BuildingType.OilRefinery);
-        Debug.Log(responds);
-    }
-
-    private void SetImage(BuildingType buildingType)
-    {
-        switch (buildingType)
-        {
-            case BuildingType.OilRefinery:
-                //
-                break;
-        }
+        bool responds = await buildingRest.LevelUpBuilding(playerInfo.GetAccesToken(), PlayerInfo.currrentTown.townId, buildingType);
     }
 }
