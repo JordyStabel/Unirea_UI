@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Backend
 {
-    enum ArmyType
+    public enum ArmyType
     {
         Infantry = 1,
         Cavalry = 2,
