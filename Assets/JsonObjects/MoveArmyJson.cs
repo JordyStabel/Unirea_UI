@@ -30,7 +30,8 @@ namespace Assets.JsonObjects
         {
             this.troopAmount = troopAmount;
             this.targetTownId = townId;
-            this.townId = townId;
+            this.targetTownId = targetTownId;
+            this.townId = sourceTownId;
             this.token = token;
         }
     }
