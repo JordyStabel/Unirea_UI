@@ -10,15 +10,15 @@ namespace Unirea.UI
         public Text ironAmount;
         public Text oilAmount;
 
-        void OnEnable()
-        {
-            EventManager.playerUpdateEvent += UpdateText;
-        }
+        //void OnEnable()
+        //{
+        //    EventManager.resourceUpdateEvent += UpdateText;
+        //}
 
-        private void OnDisable()
-        {
-            EventManager.playerUpdateEvent -= UpdateText;
-        }
+        //private void OnDisable()
+        //{
+        //    EventManager.resourceUpdateEvent -= UpdateText;
+        //}
 
         public void UpdateText()
         {
@@ -26,6 +26,7 @@ namespace Unirea.UI
             ironAmount.text = "25";
             oilAmount.text = "35";
 
+            // TODO: Get actual town name
             if (PlayerInfo.isLoggedIn) cityName.text = PlayerInfo.currentPlayer.Username + "'s City";
         }
     }

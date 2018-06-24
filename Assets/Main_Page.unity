@@ -1822,7 +1822,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 7cccba60ca08d0049af96b72dff9649e, type: 3}
+  buildingType: 6
   buildingCanvas: {fileID: 388285595}
 --- !u!114 &388285597
 MonoBehaviour:
@@ -1895,8 +1897,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7cccba60ca08d0049af96b72dff9649e, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2969,7 +2971,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: fd2e97d08de22a04ca3885b5c29d4dd0, type: 3}
+  buildingType: 4
   buildingCanvas: {fileID: 605928244}
 --- !u!114 &605928246
 MonoBehaviour:
@@ -3042,8 +3046,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fd2e97d08de22a04ca3885b5c29d4dd0, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3715,9 +3719,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 3a777db21afc6874084f85b9bc63876a, type: 3}
   - {fileID: 21300000, guid: bb1c159e9129c1f4eab8d4c2fd273bfd, type: 3}
   - {fileID: 21300000, guid: be2f7bc850da1da409047bc5cba2b933, type: 3}
+  buildingType: 2
   buildingCanvas: {fileID: 651487423}
 --- !u!114 &651487425
 MonoBehaviour:
@@ -3790,8 +3796,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3a777db21afc6874084f85b9bc63876a, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4134,7 +4140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 5efbef339e0749d4489725d25488169c, type: 3}
+  buildingType: 8
   buildingCanvas: {fileID: 705617436}
 --- !u!114 &705617438
 MonoBehaviour:
@@ -4207,8 +4215,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5efbef339e0749d4489725d25488169c, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4321,7 +4329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -0.00015258789}
+  m_AnchoredPosition: {x: 0.000061035156, y: -0.000091552734}
   m_SizeDelta: {x: 11420, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &729064560
@@ -10353,7 +10361,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 62e358dfafb4af446a984e88c3720af6, type: 3}
+  buildingType: 1
   buildingCanvas: {fileID: 1553330979}
 --- !u!114 &1553330981
 MonoBehaviour:
@@ -10426,8 +10436,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 62e358dfafb4af446a984e88c3720af6, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10968,7 +10978,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 8a896f7cbb5d79d49816a7867979b578, type: 3}
+  buildingType: 3
   buildingCanvas: {fileID: 1645230068}
 --- !u!114 &1645230070
 MonoBehaviour:
@@ -11041,8 +11053,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8a896f7cbb5d79d49816a7867979b578, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12425,7 +12437,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: d8f0ee5638691664182312bdaeadfc8e, type: 3}
+  buildingType: 10
   buildingCanvas: {fileID: 1855255810}
 --- !u!114 &1855255812
 MonoBehaviour:
@@ -12498,8 +12512,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8f0ee5638691664182312bdaeadfc8e, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12993,7 +13007,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 45e5636908816384b8316966f57bc8e2, type: 3}
+  buildingType: 9
   buildingCanvas: {fileID: 1882289337}
 --- !u!114 &1882289339
 MonoBehaviour:
@@ -13066,8 +13082,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 45e5636908816384b8316966f57bc8e2, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -13115,7 +13131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 348, y: 192}
+  m_AnchoredPosition: {x: 348, y: 161.5}
   m_SizeDelta: {x: 384, y: 384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1889425994
@@ -13130,7 +13146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 568ba7f3622bc174899a4128f2060da9, type: 3}
+  buildingType: 5
   buildingCanvas: {fileID: 1889425993}
 --- !u!114 &1889425995
 MonoBehaviour:
@@ -13203,8 +13221,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 568ba7f3622bc174899a4128f2060da9, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -14099,7 +14117,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuildingSprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 1c86b0f29768075429948a9012d1624d, type: 3}
+  buildingType: 7
   buildingCanvas: {fileID: 1977952496}
 --- !u!114 &1977952498
 MonoBehaviour:
@@ -14172,8 +14192,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1c86b0f29768075429948a9012d1624d, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

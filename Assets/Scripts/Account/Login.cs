@@ -27,6 +27,7 @@ namespace Unirea.UI
             {
                 Player tmp = await accountRest.GetAccount(player.AuthenticationToken);
                 playerInfo.UpdatePlayer(tmp);
+                //EventManager.TownUpdate();
                 UI_script.GetComponent<UI_System>().SwitchToScreen(screen);
             }
         }

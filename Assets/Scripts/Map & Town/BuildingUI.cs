@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Assets.Backend.Models;
 using Assets.Backend;
+using Assets.Backend.RestModels;
 
 namespace Unirea.UI
 {
@@ -10,10 +10,11 @@ namespace Unirea.UI
         [SerializeField]
         private Sprite[] allBuildingSprites;
 
-        [SerializeField]
-        private BuildingType buildingType;
+        public BuildingType buildingType;
 
         public RectTransform buildingCanvas;
+
+        private TownBuilding building;
 
         void Awake()
         {
@@ -30,16 +31,18 @@ namespace Unirea.UI
             EventManager.buildingImageUpdateEvent -= UpdateImage;
         }
 
-        private void UpdateImage(BuildingType _buildingType, int level)
+        private void UpdateImage()
         {
-            if (level != 0 && this.buildingType == _buildingType)
+            building = PlayerInfo.currrentTown.townBuildings[(int)buildingType - 1];
+            try
             {
-                buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[level];
+                buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[building.level];
             }
-            else
+            catch
             {
-                buildingCanvas.GetComponent<Image>().sprite = null;
-                buildingCanvas.GetComponent<Button>().enabled = false;
+                // No image
+                buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[0];
+                Debug.Log("Sprites aren't made yet.");
             }
         }
     }

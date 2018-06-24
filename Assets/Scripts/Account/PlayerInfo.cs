@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using Unirea.UI;
 using Assets.Backend.Models;
+using Assets.Backend.RestModels;
 
 public class PlayerInfo : MonoBehaviour {
 
     public static Player currentPlayer;
+    public static PlayerTown currrentTown;
 
     public static bool isLoggedIn = false;
 
@@ -34,6 +36,11 @@ public class PlayerInfo : MonoBehaviour {
     public Player GetPlayer()
     {
         return currentPlayer;
+    }
+
+    public void UpdateTown(PlayerTown town)
+    {
+        currrentTown = town;
     }
 
     private void EventNotifier() { }

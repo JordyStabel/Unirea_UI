@@ -103,7 +103,6 @@ namespace Unirea.UI
 
         public async void UpdateMap()
         {
-            string token = PlayerInfo.currentPlayer.AuthenticationToken;
             List<Map> map = await mapRest.GetAllTowns();
             townSelector.ClearOptions();
             foreach (Map town in map)
