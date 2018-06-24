@@ -31,11 +31,11 @@ namespace Assets.Backend.Rest
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/town/get", data);
                 var resultContent = await result.Content.ReadAsStringAsync();
-                var town = JsonConvert.DeserializeObject<PlayerTown>(resultContent);
-
+                
                 switch (result.StatusCode)
                 {
                     case HttpStatusCode.OK:
+                        var town = JsonConvert.DeserializeObject<PlayerTown>(resultContent);
                         return town;
                     case HttpStatusCode.Forbidden:
                         throw new SessionExpiredException("The player's login session has expired.");
