@@ -24,10 +24,17 @@ namespace Assets.Backend.RestModels
         public int resourceProduction { get; set; }
     }
 
+    public class Army
+    {
+        public ArmyType id { get; set; }
+        public int amount { get; set; }
+    }
+
     public class PlayerTown
     {
         public List<TownResource> townResources { get; set; }
         public List<TownBuilding> townBuildings { get; set; }
+        public List<Army> townArmy { get; set; }
         public int x { get; set; }
         public int y { get; set; }
         public string username { get; set; }
