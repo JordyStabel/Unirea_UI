@@ -10,24 +10,37 @@ namespace Unirea.UI
         [SerializeField]
         private Sprite[] allBuildingSprites;
 
-        private Assets.Backend.Models.Buildings.Building building;
+        [SerializeField]
+        private BuildingType buildingType;
 
         public RectTransform buildingCanvas;
 
         void Awake()
         {
             buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[0];
-            //building = get this from the town
         }
 
-        void Start()
+        private void OnEnable()
         {
-
+            EventManager.buildingImageUpdateEvent += UpdateImage;
         }
 
-        void Update()
+        private void OnDisable()
         {
+            EventManager.buildingImageUpdateEvent -= UpdateImage;
+        }
 
+        private void UpdateImage(BuildingType _buildingType, int level)
+        {
+            if (level != 0 && this.buildingType == _buildingType)
+            {
+                buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[level];
+            }
+            else
+            {
+                buildingCanvas.GetComponent<Image>().sprite = null;
+                buildingCanvas.GetComponent<Button>().enabled = false;
+            }
         }
     }
 }
