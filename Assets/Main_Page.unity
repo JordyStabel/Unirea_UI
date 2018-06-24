@@ -2139,11 +2139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 7cccba60ca08d0049af96b72dff9649e, type: 3}
+  allBuildingSprites: []
   buildingType: 6
-  buildingCanvas: {fileID: 388285595}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &388285597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3152,7 +3150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d375a8cdab8bb85428e7ed84545483b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 614213293}
+  UI: {fileID: 0}
   playerInfo: {fileID: 0}
   image: {fileID: 0}
   level: {fileID: 0}
@@ -3401,11 +3399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: fd2e97d08de22a04ca3885b5c29d4dd0, type: 3}
+  allBuildingSprites: []
   buildingType: 4
-  buildingCanvas: {fileID: 605928244}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &605928246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3553,7 +3549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d375a8cdab8bb85428e7ed84545483b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 609956650}
+  UI: {fileID: 0}
   playerInfo: {fileID: 0}
   image: {fileID: 0}
   level: {fileID: 0}
@@ -4229,13 +4225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 3a777db21afc6874084f85b9bc63876a, type: 3}
-  - {fileID: 21300000, guid: bb1c159e9129c1f4eab8d4c2fd273bfd, type: 3}
-  - {fileID: 21300000, guid: be2f7bc850da1da409047bc5cba2b933, type: 3}
+  allBuildingSprites: []
   buildingType: 2
-  buildingCanvas: {fileID: 651487423}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &651487425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4661,11 +4653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 5efbef339e0749d4489725d25488169c, type: 3}
+  allBuildingSprites: []
   buildingType: 8
-  buildingCanvas: {fileID: 705617436}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &705617438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6377,15 +6367,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3cb1b0d89ca284597150dab333c0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScreen: {fileID: 62282305}
+  startScreen: {fileID: 0}
   onScreenSwitch:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  screenFader: {fileID: 2024882289}
-  fadeInTime: 0.75
-  fadeOutTime: 0.75
+  screenFader: {fileID: 0}
+  fadeInTime: 1
+  fadeOutTime: 1
   screens: []
 --- !u!1 &938154142
 GameObject:
@@ -7119,21 +7109,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c292e0507a92d6c4e8897b6365d4fa56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  townSelector: {fileID: 918495117}
-  townSearch: {fileID: 54613793}
-  mapInfo_UI: {fileID: 1743406007}
-  tile: {fileID: 1795073218741542, guid: dcc79e2ba06b2df48947deb2f9811a93, type: 2}
-  sprites:
-  - {fileID: 21300000, guid: e8603502564ffab488cff762fdfe75e7, type: 3}
-  - {fileID: 21300000, guid: e8603502564ffab488cff762fdfe75e7, type: 3}
-  - {fileID: 21300000, guid: e8603502564ffab488cff762fdfe75e7, type: 3}
-  - {fileID: 21300000, guid: 8fbe4e32fdc16384bb355f48756bb638, type: 3}
-  - {fileID: 21300000, guid: 96cae68aa1a1af34e84bfd7c1d0a5f27, type: 3}
-  townSprite: {fileID: 21300000, guid: 6c31be50d5f969b429edc5d16184cc2b, type: 3}
-  content: {fileID: 729064561}
-  snappingSpeed: 2.5
-  maxWidth: 50
-  maxHeight: 50
+  townSelector: {fileID: 0}
+  townSearch: {fileID: 0}
+  mapInfo_UI: {fileID: 0}
+  tile: {fileID: 0}
+  sprites: []
+  townSprite: {fileID: 0}
+  content: {fileID: 0}
+  snappingSpeed: 0
+  maxWidth: 0
+  maxHeight: 0
 --- !u!1 &989667783
 GameObject:
   m_ObjectHideFlags: 0
@@ -8613,18 +8598,7 @@ MonoBehaviour:
   waitTime: 2
   onWaitCompleted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 936712357}
-        m_MethodName: SwitchToScreen
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1316478381}
-          m_ObjectArgumentAssemblyTypeName: Unirea.UI.UI_Screen, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1221136281
@@ -9308,13 +9282,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b108f195e3ec86e46ab3c804f13855eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userName: {fileID: 946756006}
-  passWord: {fileID: 900767596}
-  passWordRepeat: {fileID: 1351981185}
-  email: {fileID: 1680249883}
-  screen: {fileID: 2060363392}
-  playerInfo: {fileID: 1476690334}
-  UI_script: {fileID: 936712355}
+  userName: {fileID: 0}
+  passWord: {fileID: 0}
+  passWordRepeat: {fileID: 0}
+  email: {fileID: 0}
+  screen: {fileID: 0}
+  playerInfo: {fileID: 0}
+  UI_script: {fileID: 0}
 --- !u!1 &1301888060
 GameObject:
   m_ObjectHideFlags: 0
@@ -9576,11 +9550,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d5cebbec6171445abf8d45d3511f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  email: {fileID: 1901324278}
-  passWord: {fileID: 2120209459}
-  UI_script: {fileID: 936712355}
-  screen: {fileID: 2060363392}
-  playerInfo: {fileID: 1476690334}
+  email: {fileID: 0}
+  passWord: {fileID: 0}
+  UI_script: {fileID: 0}
+  screen: {fileID: 0}
+  playerInfo: {fileID: 0}
 --- !u!1 &1345079071
 GameObject:
   m_ObjectHideFlags: 0
@@ -11013,10 +10987,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7deac0cf3be4f4198b143beaa97074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cityName: {fileID: 90973430}
-  woodAmount: {fileID: 865909776}
-  ironAmount: {fileID: 128527601}
-  oilAmount: {fileID: 1008239629}
+  cityName: {fileID: 0}
+  woodAmount: {fileID: 0}
+  ironAmount: {fileID: 0}
+  oilAmount: {fileID: 0}
 --- !u!1 &1476690333
 GameObject:
   m_ObjectHideFlags: 0
@@ -11529,11 +11503,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 62e358dfafb4af446a984e88c3720af6, type: 3}
+  allBuildingSprites: []
   buildingType: 1
-  buildingCanvas: {fileID: 1553330979}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &1553330981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12225,11 +12197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 8a896f7cbb5d79d49816a7867979b578, type: 3}
+  allBuildingSprites: []
   buildingType: 3
-  buildingCanvas: {fileID: 1645230068}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &1645230070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13160,9 +13130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc295b5e730f40148bd85114613f57b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInfo: {fileID: 1476690334}
-  UI: {fileID: 1743406003}
-  townName: {fileID: 1359359714}
+  playerInfo: {fileID: 0}
+  UI: {fileID: 0}
+  townName: {fileID: 0}
 --- !u!1 &1745657196
 GameObject:
   m_ObjectHideFlags: 0
@@ -13882,11 +13852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: d8f0ee5638691664182312bdaeadfc8e, type: 3}
+  allBuildingSprites: []
   buildingType: 10
-  buildingCanvas: {fileID: 1855255810}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &1855255812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14551,11 +14519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 45e5636908816384b8316966f57bc8e2, type: 3}
+  allBuildingSprites: []
   buildingType: 9
-  buildingCanvas: {fileID: 1882289337}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &1882289339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14701,11 +14667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 568ba7f3622bc174899a4128f2060da9, type: 3}
+  allBuildingSprites: []
   buildingType: 5
-  buildingCanvas: {fileID: 1889425993}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &1889425995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15683,11 +15647,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf294f5056bbe546b233bf49ddf7c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBuildingSprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 1c86b0f29768075429948a9012d1624d, type: 3}
+  allBuildingSprites: []
   buildingType: 7
-  buildingCanvas: {fileID: 1977952496}
+  buildingCanvas: {fileID: 614213294}
 --- !u!114 &1977952498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16310,11 +16272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d5cebbec6171445abf8d45d3511f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  email: {fileID: 1901324278}
-  passWord: {fileID: 2120209459}
-  UI_script: {fileID: 936712355}
-  screen: {fileID: 2060363392}
-  playerInfo: {fileID: 1476690334}
+  email: {fileID: 0}
+  passWord: {fileID: 0}
+  UI_script: {fileID: 0}
+  screen: {fileID: 0}
+  playerInfo: {fileID: 0}
 --- !u!1 &2060078082
 GameObject:
   m_ObjectHideFlags: 0
@@ -16449,6 +16411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c139a15627ba9ca46a1f90f8a6bf65b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infantrySlider: {fileID: 749762486}
+  cavalrySlider: {fileID: 1658505002}
+  armoredSlider: {fileID: 938734775}
 --- !u!1 &2060363388
 GameObject:
   m_ObjectHideFlags: 0
@@ -16554,7 +16519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaab1733c517e6a458e06aa1f79d5763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInfo: {fileID: 1476690334}
+  playerInfo: {fileID: 0}
 --- !u!1 &2074045605
 GameObject:
   m_ObjectHideFlags: 0

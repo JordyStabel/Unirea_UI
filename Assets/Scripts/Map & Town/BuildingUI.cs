@@ -16,11 +16,6 @@ namespace Unirea.UI
 
         private TownBuilding building;
 
-        void Awake()
-        {
-            buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[0];
-        }
-
         private void OnEnable()
         {
             EventManager.buildingImageUpdateEvent += UpdateImage;
