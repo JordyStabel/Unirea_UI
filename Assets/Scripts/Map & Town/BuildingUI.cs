@@ -35,11 +35,12 @@ namespace Unirea.UI
             building = PlayerInfo.currrentTown.townBuildings[(int)buildingType - 1];
             try
             {
-                if (building.level > 1)
+                if (building.level >= 1)
                 {
                     buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[1];
                 }
-                buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[building.level];
+
+                //buildingCanvas.GetComponent<Image>().sprite = allBuildingSprites[building.level];
                 buildingCanvas.GetComponentInChildren<Text>().text = building.name + " " + building.level;
             }
             catch

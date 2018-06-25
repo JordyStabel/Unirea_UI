@@ -52,7 +52,9 @@ namespace Unirea.UI
                     case "CityOverview_Screen":
                         EventManager.TownUpdate();
                         break;
-
+                    case "Barracks_Screen":
+                        EventManager.TroopAmountUpdate();
+                        break;
                 };
             }
             HandleAnimator("show");

@@ -27,6 +27,9 @@ namespace Unirea.UI
         public delegate void ResourceUpdateEvent();
         public static event ResourceUpdateEvent resourceUpdateEvent;
 
+        public delegate void TroopAmountUpdateEvent();
+        public static event TroopAmountUpdateEvent troopAmountUpdateEvent;
+
         public static void PlayerUpdate()
         {
             if (playerUpdateEvent != null)
@@ -61,6 +64,12 @@ namespace Unirea.UI
         {
             if (resourceUpdateEvent != null)
                 resourceUpdateEvent();
+        }
+
+        public static void TroopAmountUpdate()
+        {
+            if (troopAmountUpdateEvent != null)
+                troopAmountUpdateEvent();
         }
     }
 }

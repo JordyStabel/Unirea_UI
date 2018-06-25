@@ -15,7 +15,21 @@ namespace Unirea.UI
         public Slider cavalrySlider;
         public Slider armoredSlider;
 
+        public Text currentInfantryAmount;
+        public Text currentCavalryAmount;
+        public Text currentArmoredAmount;
+
         private ArmyRest armyRest = new ArmyRest();
+
+        void OnEnable()
+        {
+            EventManager.troopAmountUpdateEvent += UpdateText;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.troopAmountUpdateEvent -= UpdateText;
+        }
 
         public void TrainTroops()
         {
@@ -39,6 +53,27 @@ namespace Unirea.UI
                 bool armoredSucces = await armyRest.TrainArmy(PlayerInfo.currentPlayer.AuthenticationToken, ArmyType.Armored, (int)armoredSlider.value, PlayerInfo.currrentTown.townId);
                 Debug.Log("Armored succes: " + armoredSucces);
             }
+        }
+
+        public void UpdateText()
+        {
+            try
+            {
+                currentInfantryAmount.text = PlayerInfo.currrentTown.townArmy[(int)ArmyType.Infantry - 1].amount.ToString();
+            }
+            catch { };
+
+            try
+            {
+                currentCavalryAmount.text = PlayerInfo.currrentTown.townArmy[(int)ArmyType.Cavalry - 1].amount.ToString();
+            }
+            catch { };
+
+            try
+            {
+                currentArmoredAmount.text = PlayerInfo.currrentTown.townArmy[(int)ArmyType.Armored - 1].amount.ToString();
+            }
+            catch { };
         }
     }
 }
