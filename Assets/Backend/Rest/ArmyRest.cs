@@ -57,6 +57,7 @@ namespace Assets.Backend.Rest
                 string json = JsonConvert.SerializeObject(jsonObject);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var result = await client.PostAsync("/army/move", data);
+                System.Threading.Thread.Sleep(2500);
 
                 switch (result.StatusCode)
                 {

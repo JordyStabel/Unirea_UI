@@ -22,8 +22,9 @@ namespace Unirea.UI
             Player input = new Player("UserName", email.text, passWord.text);
 
             Player player = await accountRest.Login(input);
+            Debug.Log(player.AuthenticationToken);
 
-            if (player != null)
+            if (player.AuthenticationToken != null)
             {
                 Player tmp = await accountRest.GetAccount(player.AuthenticationToken);
                 playerInfo.UpdatePlayer(tmp);

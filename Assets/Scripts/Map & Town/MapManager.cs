@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Backend.Rest;
 using Assets.Backend.RestModels;
+using Assets.JsonObjects;
 
 namespace Unirea.UI
 {
@@ -157,10 +158,21 @@ namespace Unirea.UI
             StartCoroutine(SnapToTown(new Vector2(y, x)));
         }
 
+        public void CallAttackTown()
+        {
+            AttackTown();
+        }
+
+
         public async void AttackTown()
         {
-            // TODO: Fix Troops and amount
-            await armyRest.MoveArmy(PlayerInfo.currentPlayer.AuthenticationToken, null, Int32.Parse(tile.name.Split(',')[2]), 2, PlayerInfo.currrentTown.townId);
+            List<Army> armiesInTown = PlayerInfo.currrentTown.townArmy;
+            TroopAmount infantry = new TroopAmount(Assets.Backend.ArmyType.Infantry, armiesInTown[0].amount);
+            TroopAmount cavalry = new TroopAmount(Assets.Backend.ArmyType.Infantry, armiesInTown[1].amount);
+            TroopAmount armored = new TroopAmount(Assets.Backend.ArmyType.Infantry, armiesInTown[2].amount);
+            List<TroopAmount> amount = new List<TroopAmount> { infantry, cavalry, armored };
+            bool responds = await armyRest.MoveArmy(PlayerInfo.currentPlayer.AuthenticationToken, amount, currentTile.town_id, 0, PlayerInfo.currrentTown.townId);
+            Debug.Log(responds);
         }
     }
 }
